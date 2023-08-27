@@ -1,0 +1,130 @@
+*{
+    direction: rtl !important;
+    font-size: 1rem ;
+}
+.layout-fixed .main-sidebar {
+    right: 0;
+}
+.brand-image {
+    float: right;
+}
+.content-wrapper, .main-footer, .main-header {
+    margin-left: 0px;
+    margin-right: 250px;
+}
+.mr-auto-navbav{
+    margin-right: auto!important;
+}
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+[class*=icheck-]>input:first-child:checked+input[type=hidden]+label::after,
+[class*=icheck-]>input:first-child:checked+label::after {
+    right: 15px;
+    left: auto;
+}
+.nav-sidebar .nav-link>.right,
+.nav-sidebar .nav-link>p>.right {
+    left: 1rem;
+    right: auto;
+}
+.nav-sidebar .nav-link>.right:nth-child(2),
+.nav-sidebar .nav-link>p>.right:nth-child(2) {
+    left: 2.2rem;
+    right: auto;
+}
+.small-box .icon>i {
+    left: 15px;
+    right: auto;
+}
+@media (min-width: 992px){
+    .sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+        margin-right: 4.6rem!important;
+    }
+    .sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+        margin-right: 4.6rem!important;
+        margin-left: 0!important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .main-sidebar, .main-sidebar::before {
+        box-shadow: none !important;
+        margin-right: -250px;
+    }
+
+    .content-wrapper, .content-wrapper::before, .main-footer, .main-footer::before, .main-header, .main-header::before {
+        margin-right: 0;
+    }
+
+    .sidebar-open .main-sidebar, .sidebar-open .main-sidebar::before {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header
+{
+    transition: margin-right.3s ease-in-out;
+    margin-right: 230px;
+    margin-left: auto;
+}
+
+.main-sidebar, .main-sidebar::before
+{
+    width: 230px;
+}
+
+
+}
+
+body
+{
+    text-align: right;
+}
+
+.nav
+{
+    padding-right: 0;
+}
+
+.brand-link .brand-image
+{
+    float: right;
+}
+
+.ml-auto, .mx-auto
+{
+    margin-left: 0 !important;
+    margin-right: auto;
+}
+
+.dropdown-menu
+{
+    min-width: 20rem;
+    left: 0 !important;
+    right: inherit !important;
+}
+
+.dropdown-menu-lg .dropdown-item
+{
+    padding: 1rem 1rem;
+}
+
+.navbar-nav
+{
+    padding-right: 0;
+}
+
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link
+{
+    width: calc(230px - .5rem * 2);
+}
+
+.layout-fixed .brand-link
+{
+    width: 230px;
+}

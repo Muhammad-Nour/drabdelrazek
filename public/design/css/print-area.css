@@ -1,0 +1,104 @@
+
+.print-header
+{
+    border: 2px solid #000;
+
+}
+
+.print-footer
+{
+    border: 2px solid #000;
+    border-top: none;
+}
+
+.print-footer img
+{
+    width: 100%;
+}
+
+.print-content
+{
+    position: relative;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    padding: 15px 30px;
+}
+
+
+.print-content .title
+{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+/**  pay-check  **********************************************/
+.pay-check .right
+{
+    text-align: right;
+    width: 20%;
+}
+
+.pay-check .center
+{
+    width: 60%;
+    text-align: center;
+}
+
+.pay-check .left
+{
+    text-align: left;
+    width: 20%;
+}
+
+.pay-check p
+{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.pay-check .title-check span {
+    border: 3px solid #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pay-check .total span {
+    border: 3px solid #000;
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.pay-check .title-check
+{
+    margin-top: 20px;
+}
+
+.pay-check .name .center p , .pay-check .amount .center p
+{
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pay-check .signature
+{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.pay-check .signature td
+{
+    width: 50%;
+}
+
+.pay-check .date
+{
+    text-align: right;
+}
+

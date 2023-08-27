@@ -1,0 +1,31 @@
+<?php
+return
+[
+    // Ahmed //////////////
+    'project_name' => 'Almabda For Decoration',
+    'home' => 'Home',
+    'aboutus' => 'About Us',
+    'products' => 'Products',
+    'projects' => 'Our Works',
+    'contactus' => 'Contact Us',
+    'search_in_almabda' => 'Search in Al-mabdaa For Decoration for products',
+    'signin' => 'SignIn',
+    'registration' => 'Registration',
+    'addto_card' => 'Add To Card',
+    'sar' => 'SAR',
+    'share' => 'Share',
+    'description' => 'Description',
+    'details' => 'Details',
+    'related_products' => 'Related Products',
+    'designs' => 'designs',
+    'our_clients' => 'Success Partners',
+    'secrets_success' => 'Secrets of our success',
+    'Get_in_touch' => 'Get in touch',
+    'send_us_message' => 'If you have any questions, just fill in the contact form, and we will answer you shortly.',
+    'name' => 'Name',
+    'email' => 'E-mail',
+    'phone' => 'Phone',
+    'subject' => 'Subject',
+    'message' =>'Message',
+    'send_message' => 'Send Message',
+];

@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'DroidKufi';
+    src: url('../fonts/DroidKufi-Regular.ttf') format('truetype'),
+    url('../fonts/DroidKufi-Regular.woff2') format('woff2'),
+    url('../fonts/DroidKufi-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body
+{
+	font-family: "DroidKufi" !important;
+}
+
+.content-header h1
+ {
+    text-align: center;
+ }
+
+ .link-btn
+{
+    position: absolute;
+    top: 75px;
+    background-color: #edb651;
+    border-color: #edb651;
+    color: #fff;
+}
+
+.link-btn:hover, .link-btn:focus , .link-btn.active , .link-btn:active
+{
+    background-color: #edb651;
+    border-color: #edb651;
+    color: #fff;
+}
+
+.card-title
+{
+    float: right;
+}
+
+table thead
+{
+    background-color: #915d4b;
+    color: #fff;
+}
+
+[class*=sidebar-dark-]
+{
+    background-color: #915d4b;
+}
+
+[class*=sidebar-dark-] .sidebar a
+{
+    color: #fff;
+}
+
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active
+{
+    background-color: #edb651;
+}
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover
+{
+    background-color: #edb651;
+    color: #fff;
+}
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.sub-active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.sub-active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.sub-active:hover
+{
+    background-color: #fff;
+    color: #000;
+}
+
+.card-header
+{
+    background-color: #9f522b;
+    color: #fff;
+}
+
+
+.navbar-light .navbar-nav .nav-link
+{
+    color: #000;
+}
+
+.nav-sidebar>.nav-item {
+    margin-bottom: 5px;
+}
+
+.user-panel
+{
+    padding-top: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.card
+{
+    box-shadow: 1px 1px 15px rgb(0 0 0 / 10%);
+}
+
+[class*=sidebar-dark] .user-panel
+{
+    border-bottom: 2px solid #ef5b0f;
+}
+
+
+select
+{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+.div-table
+{
+    overflow-x: scroll;
+}
+
+.div-table table
+{
+    min-width: 100%;
+    width: max-content;
+}
+
+
+.side-logo img
+{
+    width: 100%;
+}
+
+.layout-fixed .wrapper .sidebar
+{
+    height: calc(100vh - (5.5rem + 1px));
+}
+
+.content-header h1
+{
+    font-size: 1.8rem !important;
+}
+
+
+.btn-style
+{
+    background-color: #edb651;
+    border-color: #edb651 !important;
+    color: #fff;
+}
+
+.btn-style2
+{
+    background-color: #cc232a;
+    border-color: #cc232a !important;
+    color: #fff;
+}
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link
+{
+    color: #fff;
+    padding-right: 20px;
+}
+
+.card-header
+{
+    background-color: #edb651;
+}
