@@ -54,6 +54,13 @@ class FrontController extends Controller
         return view('site.about');
     }
 
+    public function blog()
+    {
+        $blogs = Blog::select('id','title_'.app()->getLocale().' as title','photo','description_'.app()->getLocale().' as description','date')->get();
+
+        return view('site.blog',compact('blogs'));
+    }
+
     public function contact()
     {
         $phone = Setting::where('code', 'phone')->first();

@@ -48,6 +48,7 @@ Route::group(
         Route::get('projects/details/{project}' , 'projectDetails')->name('front.projectDetails');
         Route::get('about' , 'about')->name('front.about');
         Route::get('contact' , 'contact')->name('front.contact');
+        Route::get('blog' , 'blog')->name('front.blog');
     });
 	//end FrontController
 

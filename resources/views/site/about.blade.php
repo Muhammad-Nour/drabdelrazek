@@ -2,6 +2,7 @@
 use App\Models\Custom;
 use App\Models\Setting;
 use App\Models\Testimonial;
+use App\Models\Blog;
 
 $about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
 $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
@@ -18,6 +19,8 @@ $secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->f
 
 $testimonials = Testimonial::select('id','photo','name',
     'description_'.app()->getLocale().' as description','position_'.app()->getLocale().' as position')->get();
+
+$blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description')->get();
 
 
     ?>
@@ -41,19 +44,19 @@ $testimonials = Testimonial::select('id','photo','name',
         <div class="breadcumb-wrapper">
             <div class="parallax" 
             data-parallax-image="{{asset('images/'.$about->photo)}}">
-            </div>
-            <div class="container z-index-common">
-                <div class="breadcumb-content">
-                    <h1 class="breadcumb-title">About Us</h1>
-                    <div class="breadcumb-menu-wrap"><i class="far fa-home-lg"></i>
-                        <ul class="breadcumb-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">About Us</li>
-                        </ul>
-                    </div>
+        </div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">About Us</h1>
+                <div class="breadcumb-menu-wrap"><i class="far fa-home-lg"></i>
+                    <ul class="breadcumb-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">About Us</li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <section class="vs-about-wrapper space">
@@ -246,9 +249,9 @@ $testimonials = Testimonial::select('id','photo','name',
                 </div>
             </div>
         </div>
-            </div>
-        </section>
     </div>
+</section>
+</div>
 
 <section class="testimonial-wrapper space-top space-md-bottom">
     <div class="parallax" data-parallax-image="{{asset('design-site/img/bg/bg-shape-6.jpg')}}"></div>
@@ -309,87 +312,39 @@ $testimonials = Testimonial::select('id','photo','name',
 </div>
 </section>
 <section class="vs-blog-wrapper space-md-bottom space-top">
-<div class="container">
-<div class="row text-center justify-content-center">
-<div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-<div class="section-title">
-    <div class="sec-icon"><i class="flaticon-ecg"></i></div>
-    <h2 class="h1">Latest Posts</h2>
-    <p>Proactively revolutionize granular customer service after pandemic internal or "organic"
-    sources istinctively impact proactive human</p>
-</div>
-</div>
-</div>
-<div class="row vs-carousel wow fadeIn" data-wow-delay="0.3s" data-slide-show="3" data-lg-slide-show="2">
-<div class="col-xl-4">
-<div class="vs-blog blog-card">
-    <div class="blog-img"><img src="assets/img/blog/b-1-1.jpg" alt="Blog Image" class="w-100">
-        <div class="blog-date">
-            <div class="day">22</div>Jan 2023
-        </div>
-    </div>
-    <div class="blog-content">
-        <div class="blog-meta"><a href="blog.html"><i class="far fa-folder"></i>Mental Health</a> <a
-            href="blog.html"><i class="fal fa-user"></i>David Smith</a></div>
-            <h3 class="blog-title h5 font-body lh-base"><a href="blog.html">Services enable process is
-            tobe after user-centric schemas now</a></h3><a href="blog.html"
-            class="link-btn">Read More<i class="far fa-long-arrow-right"></i></a>
-        </div>
-    </div>
-</div>
-<div class="col-xl-4">
-    <div class="vs-blog blog-card">
-        <div class="blog-img"><img src="assets/img/blog/b-1-2.jpg" alt="Blog Image" class="w-100">
-            <div class="blog-date">
-                <div class="day">23</div>Mar 2023
-            </div>
-        </div>
-        <div class="blog-content">
-            <div class="blog-meta"><a href="blog.html"><i class="far fa-folder"></i>Therapy</a> <a
-                href="blog.html"><i class="fal fa-user"></i>Vivi Marian</a></div>
-                <h3 class="blog-title h5 font-body lh-base"><a href="blog.html">From its medieval origins to
-                the digital era everything there</a></h3><a href="blog.html" class="link-btn">Read
-                    More<i class="far fa-long-arrow-right"></i></a>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="section-title">
+                    <div class="sec-icon"><i class="flaticon-ecg"></i></div>
+                    <h2 class="h1">Blog</h2>
+                    <p>Proactively revolutionize granular customer service after pandemic internal or "organic"
+                    sources istinctively impact proactive human</p>
                 </div>
             </div>
         </div>
+        <div class="row vs-carousel wow fadeIn" data-wow-delay="0.3s" data-slide-show="3" data-lg-slide-show="2">
+            @foreach($blogs as $blog)
         <div class="col-xl-4">
             <div class="vs-blog blog-card">
-                <div class="blog-img"><img src="assets/img/blog/b-1-3.jpg" alt="Blog Image" class="w-100">
-                    <div class="blog-date">
-                        <div class="day">28</div>Dec 2023
-                    </div>
+                <div class="blog-img"><img src="{{asset('images/'.$blog->photo)}}" alt="Blog Image" class="w-100">
                 </div>
                 <div class="blog-content">
-                    <div class="blog-meta"><a href="blog.html"><i class="far fa-folder"></i>Acupressure </a><a
-                        href="blog.html"><i class="fal fa-user"></i>Moris John</a></div>
-                        <h3 class="blog-title h5 font-body lh-base"><a href="blog.html">Latin derived from Cicero's
-                        1st-century BC text De Fini now with</a></h3><a href="blog.html"
-                        class="link-btn">Read More<i class="far fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <div class="vs-blog blog-card">
-                    <div class="blog-img"><img src="assets/img/blog/b-1-4.jpg" alt="Blog Image" class="w-100">
-                        <div class="blog-date">
-                            <div class="day">22</div>Jan 2023
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta"><a href="blog.html"><i class="far fa-folder"></i>Mental Health</a> <a
-                            href="blog.html"><i class="fal fa-user"></i>David Smith</a></div>
-                            <h3 class="blog-title h5 font-body lh-base"><a href="blog.html">Creation timelines the
-                            standard lorem ipsum passage vary</a></h3><a href="blog.html" class="link-btn">Read
-                                More<i class="far fa-long-arrow-right"></i></a>
-                            </div>
+                    <h3 class="blog-title h5 font-body lh-base">
+                    <a href="blog.html">{!!$blog->description!!}
+                    </a>
+                    </h3>
+                    <a href="blog.html" class="link-btn">Read More
+                            <i class="far fa-long-arrow-right"></i>
+                        </a>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-        </section>
+        </div>
+    </section>
 
 </div>
-
 
 @stop
