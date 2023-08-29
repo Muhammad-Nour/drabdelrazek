@@ -29,4 +29,9 @@ return
     'subject' => 'الموضوع',
     'message' =>'الرسالة',
     'send_message' => 'إرسال الرسالة',
+
+    // muhammad
+    'address' => 'العنوان',
+    'appointments' => 'مواعيد العمل',
+    'customer_service'=>'للإستفسار',
 ];

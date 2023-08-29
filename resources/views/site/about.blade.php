@@ -37,9 +37,6 @@ $blogs = Blog::select('id','photo','description_'.app()->getLocale().' as descri
 
     @section('content')
 
-
-
-
     <div class="about">
         <div class="breadcumb-wrapper">
             <div class="parallax" 

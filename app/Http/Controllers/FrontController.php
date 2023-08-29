@@ -66,8 +66,15 @@ class FrontController extends Controller
         $phone = Setting::where('code', 'phone')->first();
         $phone2 = Setting::where('code', 'phone2')->first();
         $email = Setting::where('code', 'email')->first();
+        $appointment1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment1')->first();
 
-        return view('site.contact',compact('phone','phone2','email'));
+        $appointment1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment1')->first();
+
+        $appointment2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment2')->first();
+
+        $appointment3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment3')->first();
+
+        return view('site.contact',compact('phone','phone2','email','appointment1','appointment2','appointment3'));
     }
 
 }
