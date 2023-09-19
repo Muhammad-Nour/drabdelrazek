@@ -1,0 +1,6 @@
+.text-white a {
+    color: #444444;
+    text-decoration: none;
+    outline: 0;
+    transition: all ease .4s
+}

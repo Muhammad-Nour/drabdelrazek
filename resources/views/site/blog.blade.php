@@ -17,6 +17,12 @@ $secret3 = Custom::select('id', 'description_'.app()->getLocale().' as descripti
 $secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
 $secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
 
+$phone2 = Setting::where('code', 'phone2')->first();
+
+$dr_name = Custom::where('code', 'dr_name')->first();
+
+$bio = Custom::where('code', 'bio')->first();
+
 ?>
 @extends('site.layouts.app')
 

@@ -39,14 +39,17 @@ class FrontController extends Controller
 
 
         $phone = Setting::where('code', 'phone')->first();
+        $phone2 = Setting::where('code', 'phone2')->first();
         $facebook = Setting::where('code', 'facebook')->first();
         $LinkedIn = Setting::where('code', 'LinkedIn')->first();
         $WhatsApp = Setting::where('code', 'WhatsApp')->first();
+        $dr_name = Custom::where('code', 'dr_name')->first();
+        $bio = Custom::where('code', 'bio')->first();
 
         
 
         return view('site.home-page.home-page', 
-            compact('sliders','services','testimonials','about','address','phone','facebook','LinkedIn','WhatsApp','secret1','secret2','secret3','secrets_video','projects','secrets_photo','blogs'));
+            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','LinkedIn','WhatsApp','secret1','secret2','secret3','secrets_video','projects','secrets_photo','blogs','bio','dr_name'));
     }
 
     public function about()

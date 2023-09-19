@@ -22,6 +22,11 @@ $testimonials = Testimonial::select('id','photo','name',
 
 $blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description')->get();
 
+$phone2 = Setting::where('code', 'phone2')->first();
+
+$dr_name = Custom::where('code', 'dr_name')->first();
+
+$bio = Custom::where('code', 'bio')->first();
 
     ?>
 
