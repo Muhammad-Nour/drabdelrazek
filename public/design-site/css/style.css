@@ -5732,7 +5732,7 @@ blockquote cite:before {
 }
 
 .blog-card .blog-img img {
-    transform: scale(1.001);
+    transform: scale(1.005);
     transition: all ease .4s
 }
 

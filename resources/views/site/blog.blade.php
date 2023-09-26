@@ -3,12 +3,16 @@ use App\Models\Custom;
 use App\Models\Setting;
 use App\Models\Testimonial;
 use App\Models\Blog;
+use App\Models\Branch;
 
 $about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
 $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
+$branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
+            'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
+
 $phone    = Setting::where('code', 'phone')->first();
 $facebook = Setting::where('code', 'facebook')->first();
-$LinkedIn = Setting::where('code', 'LinkedIn')->first();
+$instgram = Setting::where('code', 'instgram')->first();
 $WhatsApp = Setting::where('code', 'WhatsApp')->first();
 
 $secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
@@ -40,11 +44,11 @@ $bio = Custom::where('code', 'bio')->first();
     <div class="parallax" data-parallax-image="{{asset('design-site/img/breadcurmb/breadcurmb-1-1.jpg')}}"></div>
     <div class="container z-index-common">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Blogs</h1>
+            <h1 class="breadcumb-title">{{__('front.blog')}}</h1>
             <div class="breadcumb-menu-wrap"><i class="far fa-home-lg"></i>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Blogs</li>
+                    <li><a href="{{route('home')}}">{{__('front.home')}}</a></li>
+                    <li class="active">{{__('front.blog')}}</li>
                 </ul>
             </div>
         </div>
@@ -60,11 +64,6 @@ $bio = Custom::where('code', 'bio')->first();
                         	<img src="{{asset('design-site/img/blog/blog-s-1-1.jpg')}}"
                                     alt="Blog Image"></a></div>
                         <div class="blog-content">
-                            <div class="blog-meta">
-                            	<a href="#"><i class="fal fa-eye"></i>17 Views</a> 
-                            	<a href="#"><i class="fal fa-comments"></i>09 Comments</a> 
-                            	<a href="#"><i class="fal fa-calendar"></i>{{$blog->date}}</a>
-                            </div>
                             <h2 class="blog-title h3">
                             	<a href="blog-details.html">{{$blog->title}}</a>
                             </h2>

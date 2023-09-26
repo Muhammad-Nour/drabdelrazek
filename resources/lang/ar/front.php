@@ -5,10 +5,9 @@ return
     // Ahmed //////////////
     'project_name' => 'د / عبدالرازق',
     'home' => 'الرئيسية',
-    'aboutus' => 'عن الشركة',
+    'aboutus' => 'عن الدكتور',
     'products' => 'المنتجات',
     'projects' => 'أعمالنا',
-    'contactus' => 'إتصل بنا',
     'search_in_almabda' => 'ابحث فى المبدأ للديكور عن المنتجات',
     'signin' => 'تسجيل الدخول ',
     'registration' => 'الإشتراك',
@@ -34,4 +33,8 @@ return
     'address' => 'العنوان',
     'appointments' => 'مواعيد العمل',
     'customer_service'=>'للإستفسار',
+    'blog'=>'المقالات',
+    'contact'=>'تواصل معنا',
+    'testimonial'=>'آراء العملاء',
+    'services'=>'خدماتنا',
 ];

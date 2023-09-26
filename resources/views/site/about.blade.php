@@ -3,24 +3,31 @@ use App\Models\Custom;
 use App\Models\Setting;
 use App\Models\Testimonial;
 use App\Models\Blog;
+use App\Models\Why_us;
+use App\Models\Branch;
 
 $about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
 $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
 $phone    = Setting::where('code', 'phone')->first();
 $facebook = Setting::where('code', 'facebook')->first();
-$LinkedIn = Setting::where('code', 'LinkedIn')->first();
+$instgram = Setting::where('code', 'instgram')->first();
 $WhatsApp = Setting::where('code', 'WhatsApp')->first();
+
+$branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
+            'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
 
 $secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
 $secret2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret2')->first();
 $secret3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret3')->first();
-$secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
+
+$secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')->where('code', 'secrets_video')->first();
+
 $secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
 
 $testimonials = Testimonial::select('id','photo','name',
     'description_'.app()->getLocale().' as description','position_'.app()->getLocale().' as position')->get();
 
-$blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description')->get();
+$blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description','title_'.app()->getLocale().' as title')->get();
 
 $phone2 = Setting::where('code', 'phone2')->first();
 
@@ -28,7 +35,10 @@ $dr_name = Custom::where('code', 'dr_name')->first();
 
 $bio = Custom::where('code', 'bio')->first();
 
-    ?>
+$questions = Why_us::select('id','description_'.app()->getLocale().' as description')->get();
+
+
+?>
 
     @extends('site.layouts.app')
 
@@ -49,11 +59,10 @@ $bio = Custom::where('code', 'bio')->first();
         </div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">About Us</h1>
                 <div class="breadcumb-menu-wrap"><i class="far fa-home-lg"></i>
                     <ul class="breadcumb-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">About Us</li>
+                        <li><a href="{{route('home')}}">{{__('front.home')}}</a></li>
+                        <li class="active">{{__('front.aboutus')}}</li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +76,7 @@ $bio = Custom::where('code', 'bio')->first();
                 <div class="col-lg-6 mb-40 mb-lg-0">
                     <div class="vs-surface wow" data-wow-delay="0.3s">
                         <div class="about-img3 position-relative">
-                            <img src="{{asset('images/'.$secrets_photo->photo)}}"
+                            <img src="{{asset('images/'.$secrets_video->photo)}}"
                             alt="About Image" class="w-100">
                             <a href="{{$secrets_video->description}}"
                                 class="popup-video play-btn style2 position-center">
@@ -77,27 +86,30 @@ $bio = Custom::where('code', 'bio')->first();
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center">
-                    <div class="about-content mb-2">
-                        <span class="sec-subtitle text-theme h3 mb-2 mb-md-0">
-                            Medical & General Care!
-                        </span>
-                    </div>
                     <div class="row">
                         <div class="col-xl-10">
-                            <h2 class="h1 mb-3"><span>{!!$secret1->description!!}</span>
+                            <h2 class="h1 mb-3"><span>{{$dr_name->description_ar}}</span>
                             </h2>
                         </div>
                         <div class="col-xl-10">
-                            <p class="mb-4">{{$secret2->description}}</p>
+                            <p class="mb-4">{{$about->description}}</p>
                         </div>
                     </div>
                     <div class="media-style1">
-                        <div class="media-icon"><i class="fas fa-phone"></i></div>
+               
                         <div class="media-body">
-                            <h3 class="media-title">CALL ANYTIME 24/7</h3>
-                            <p class="media-text"><a href="#">{{$phone->value}}</a></p>
+                            <h3 class="media-title">للتواصل و الإستفسارات</h3>
+                            <p class="media-text">
+                                <i class="fas fa-phone"></i>
+                                <a>{{$phone->value}}</a>
+                            </p>
+                            <p class="media-text">
+                                <i class="fas fa-phone"></i>
+                                <a>{{$phone2->value}}</a>
+                            </p>
+
                         </div>
-                    </div><a href="#" class="vs-btn">Learn More</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,56 +168,21 @@ $bio = Custom::where('code', 'bio')->first();
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 mb-30 mb-xl-0">
-                        <div class="about-content"><span class="h3 text-theme sec-subtitle mb-2 mb-md-0">7 Star Care &
-                        Protection</span>
-                        <h2 class="h1">Why Choose Us?</h2>
-                        <p class="pe-xl-2 text-title">Proactively revolutionize granular customer service after
-                            pandemic internal or "organic" sources. Distinctively impact proactive human capital
-                        rather than client-centered benefits.</p>
-                        <div class="row pt-3">
-                            <div class="col-sm-6 col-lg-5 col-xl-6">
-                                <div class="d-flex mb-25"><span class="text-theme mr-20"><i
-                                    class="flaticon-security fa-3x lh-1"></i></span>
-                                    <div class="media-body">
-                                        <h3 class="h5 mb-2 pb-1">100% Safe & Trused</h3>
-                                        <p class="mb-0 fs-xs">Professional web-readiness via ubiquitous human
-                                        capital.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-5 col-xl-6">
-                                <div class="d-flex mb-25"><span class="text-theme mr-20"><i
-                                    class="flaticon-computer-mouse fa-3x lh-1"></i></span>
-                                    <div class="media-body">
-                                        <h3 class="h5 mb-2 pb-1">Specialist Surgery</h3>
-                                        <p class="mb-0 fs-xs">Professional web-readiness via ubiquitous human
-                                        capital.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-5 col-xl-6">
-                                <div class="d-flex mb-25"><span class="text-theme mr-20"><i
-                                    class="flaticon-healthcare fa-3x lh-1"></i></span>
-                                    <div class="media-body">
-                                        <h3 class="h5 mb-2 pb-1">24/7 take care staff</h3>
-                                        <p class="mb-0 fs-xs">Professional web-readiness via ubiquitous human
-                                        capital.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-5 col-xl-6">
-                                <div class="d-flex mb-25"><span class="text-theme mr-20"><i
-                                    class="flaticon-laboratory-equipment fa-3x lh-1"></i></span>
-                                    <div class="media-body">
-                                        <h3 class="h5 mb-2 pb-1">Medicine service</h3>
-                                        <p class="mb-0 fs-xs">Professional web-readiness via ubiquitous human
-                                        capital.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="about-content">
+                    <h2 class="h1 mb-3">لماذا نحن</h2>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xl-12">
+                            <ul class="vs-list list-unstyled text-title">
+                                @foreach($questions as $question)
+                                <li style="font-size: 17px;font-weight: 500;">
+                                    {{$question->description}}
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
                 <div class="col-xl-6">
                     <div class="vs-accordion accordion accordion-style2" id="vsaccordion">
                         <div class="accordion-item">
@@ -262,9 +239,7 @@ $bio = Custom::where('code', 'bio')->first();
             <div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="section-title">
                     <div class="sec-icon"><i class="flaticon-ecg"></i></div>
-                    <h2 class="h1">Our Patient Says</h2>
-                    <p>Proactively revolutionize granular customer service after pandemic internal or "organic"
-                    sources istinctively impact proactive human</p>
+                    <h2 class="h1">{{__('front.testimonial')}}</h2>
                 </div>
             </div>
         </div>
@@ -281,8 +256,6 @@ $bio = Custom::where('code', 'bio')->first();
                             <img src="{{asset('images/'.$testimonial->photo)}}" 
                             alt="Author Image">
                         </div>
-                        <h3 class="mb-0 h4 font-body">{{$testimonial->name}}</h3>
-                        <span class="fs-xs">{{$testimonial->position}}</span>
                     </div>
                     @endforeach
                 </div>
@@ -319,9 +292,7 @@ $bio = Custom::where('code', 'bio')->first();
             <div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="section-title">
                     <div class="sec-icon"><i class="flaticon-ecg"></i></div>
-                    <h2 class="h1">Blog</h2>
-                    <p>Proactively revolutionize granular customer service after pandemic internal or "organic"
-                    sources istinctively impact proactive human</p>
+                    <h2 class="h1">{{__('front.blog')}}</h2>
                 </div>
             </div>
         </div>
@@ -333,7 +304,7 @@ $bio = Custom::where('code', 'bio')->first();
                 </div>
                 <div class="blog-content">
                     <h3 class="blog-title h5 font-body lh-base">
-                    <a href="blog.html">{!!$blog->description!!}
+                    <a href="blog.html">{!!$blog->title!!}
                     </a>
                     </h3>
                     <a href="blog.html" class="link-btn">Read More

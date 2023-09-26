@@ -46,9 +46,16 @@ Route::group(
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
         Route::get('projects' , 'projects')->name('front.projects');
         Route::get('projects/details/{project}' , 'projectDetails')->name('front.projectDetails');
+
         Route::get('about' , 'about')->name('front.about');
-        Route::get('contact' , 'contact')->name('front.contact');
+        // Route::get('contact' , 'contact')->name('front.contact');
+
+        Route::get('branch/{branch}' , 'contact')->name('front.contact');
+
         Route::get('blog' , 'blog')->name('front.blog');
+        Route::get('appointment','appointment')->name('appointment.store');//muhammad
+        Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
+
     });
 	//end FrontController
 

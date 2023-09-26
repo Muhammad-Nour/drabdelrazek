@@ -72,7 +72,7 @@
                             <div class="col text-end text-lg-center">
                                 <nav class="main-menu menu-style1 d-none d-lg-block">
                                     <ul>
-                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="{{route('home')}}">Home</a></li>
                                         
                                         <li><a href="{{route('front.about')}}">About</a></li>
                                       
@@ -85,7 +85,14 @@
                                            
                                         <li><a href="{{route('front.blog')}}">Blog</a></li>
 
-                                        <li><a href="{{route('front.contact')}}">Contact</a></li>
+                                        <li class="menu-item-has-children"><a href="#">Contact</a>
+                                            <ul class="sub-menu">
+                                                @foreach($branches as $branch)
+                                                <li><a href="{{route('front.contact',$branch->id)}}">
+                                                    {{$branch->name}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </nav><button class="vs-menu-toggle d-inline-block d-lg-none"><i
                                         class="fas fa-bars"></i></button>

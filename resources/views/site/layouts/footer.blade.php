@@ -1,14 +1,11 @@
 <?php
 use App\Models\Service;
 use App\Models\Custom;
+use App\Models\Branch;
 
-$appointment1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment1')->first();
+$branches = Branch::select('id','name_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 
-$appointment2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment2')->first();
-
-$appointment3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment3')->first();
-
-$services = Service::select('id','photo', 'title_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
+$services = Service::select('id','photo','title_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 
 ?>
 <footer class="footer-wrapper footer-layout1" data-bg-src="{{asset('design-site/img/bg/bg-shape-4.png')}}">
@@ -25,10 +22,8 @@ $services = Service::select('id','photo', 'title_'.app()->getLocale().' as name'
                 </div>
                 <div class="col-sm-6 col-md-auto pt-20 pt-sm-0 pb-20 pb-sm-0 text-center text-sm-end">
                     <div class="footer-social">
-                        <a href="{{$facebook->value}}"><i class="fab fa-facebook-f"></i></a> 
-                        <a href="{{$WhatsApp->value}}"><i class="fab fa-whatsapp"></i></a> 
-                        <a href="{{$WhatsApp->value}}"><i class="far fa-basketball-ball"></i></a> 
-                        <a href="{{$LinkedIn->value}}"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{$facebook->value}}" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+                        <a href="{{$instgram->value}}" target="_blank"><i class="fab fa-instagram"></i></a> 
                     </div>
                 </div>
             </div>
@@ -39,9 +34,9 @@ $services = Service::select('id','photo', 'title_'.app()->getLocale().' as name'
             <div class="row justify-content-between">
                 <div class="col-md-6 col-lg-3 col-xl-3">
                     <div class="widget footer-widget">
-                        <h3 class="widget_title">About Us</h3>
+                        <h3 class="widget_title">{{__('front.aboutus')}}</h3>
                         <div class="vs-widget-about">
-                            {!!$about->description!!}
+                            <p>{{$about->description}}</p>
                             <h4>
                                 <a class="text-theme hover-white">
                                     <i class="fas fa-phone-volume me-2 pe-1"></i> {{$phone->value}}<br>
@@ -66,7 +61,7 @@ $services = Service::select('id','photo', 'title_'.app()->getLocale().' as name'
                 </div>
                 <div class="col-md-6 col-lg-auto col-xl-auto">
                     <div class="widget footer-widget widget_nav_menu">
-                        <h3 class="widget_title">Services</h3>
+                        <h3 class="widget_title">{{__('front.services')}}</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
                                 @foreach($services as $service)
@@ -80,14 +75,9 @@ $services = Service::select('id','photo', 'title_'.app()->getLocale().' as name'
                 <div class="col-md-6 col-lg-3 col-xl-3">
                     <div class="widget footer-widget">
                         <h3 class="widget_title">{{__('front.appointments')}}</h3>
-                        <p>{{$appointment1->description}}</p>
-                        <p>{{$appointment2->description}}</p>
-                        <p>{{$appointment3->description}}</p>
-                        <div class="address-line">
-                            <i class="far fa-map-marker-alt text-theme fs-md"></i> 
-                            <a href="#"class="text-reset fs-md"></a>
-                            {{$address->description}}
-                        </div>
+                        @foreach($branches as $branch)
+                        <p>{{$branch->name}} | {{$branch->description}}</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -102,14 +92,6 @@ $services = Service::select('id','photo', 'title_'.app()->getLocale().' as name'
                         <i class="fal fa-copyright"></i> 
                         2023 . All rights reserved by 
                         <a href="https://wa.me/+201151379295" target="_blanck">Future For Development</a> .</p>
-                    </div>
-                    <div class="col-auto d-none d-md-block">
-                        <ul class="footer-bottom-menu">
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">About</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
