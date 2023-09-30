@@ -26,4 +26,6 @@
 
     @include('site.home-page.inc-category9')
 
+    @include('site.home-page.inc-category10')
+
 @stop

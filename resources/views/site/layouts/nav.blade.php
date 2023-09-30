@@ -85,6 +85,12 @@
                                            
                                         <li><a href="{{route('front.blog')}}">Blog</a></li>
 
+                                        <li><a href="{{route('front.projects')}}">{{__('front.projects')}}</a></li>
+
+                                        <li><a href="{{route('front.meettings')}}">{{__('front.meettings')}}</a></li>
+
+                                        <li><a href="{{route('front.BookAppointment')}}">{{__('front.appointment')}}</a></li>
+
                                         <li class="menu-item-has-children"><a href="#">Contact</a>
                                             <ul class="sub-menu">
                                                 @foreach($branches as $branch)
@@ -97,15 +103,11 @@
                                 </nav><button class="vs-menu-toggle d-inline-block d-lg-none"><i
                                         class="fas fa-bars"></i></button>
                             </div>
-                            <div class="col-auto gap-3 d-none d-lg-flex"><a href="#"
-                                    class="icon-btn style3 searchBoxTggler"><i class="far fa-search"></i></a> <a
-                                    href="#" class="icon-btn style3 sideMenuToggler"><i class="far fa-bars"></i></a>
-                            </div>
                             <div class="col-auto d-none-xxxl">
                                 <div class="header-call phone-box d-flex align-items-center style2"><a
                                         href="tel:66925682596" class="box-icon"><i class="fas fa-phone-alt"></i></a>
-                                    <div class="media-body"><span class="fs-xs text-title">Call Anytime</span>
-                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:66925682596">669 2568 2596</a></p>
+                                    <div class="media-body"><span class="fs-xs text-title">للحجز</span>
+                                        <p class="h4 fw-bold lh-1 mb-0"><a href="tel:.'{{$phone->value}}'.">{{$phone->value}}</a></p>
                                     </div>
                                 </div>
                             </div>

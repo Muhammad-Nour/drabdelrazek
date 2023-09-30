@@ -1,3 +1,33 @@
+<?php
+use App\Models\Custom;
+use App\Models\Setting;
+use App\Models\Testimonial;
+use App\Models\Blog;
+use App\Models\Branch;
+
+$about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
+$address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
+$branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
+            'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
+
+$phone    = Setting::where('code', 'phone')->first();
+$facebook = Setting::where('code', 'facebook')->first();
+$instgram = Setting::where('code', 'instgram')->first();
+$WhatsApp = Setting::where('code', 'WhatsApp')->first();
+
+$secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
+$secret2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret2')->first();
+$secret3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret3')->first();
+$secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
+$secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
+
+$phone2 = Setting::where('code', 'phone2')->first();
+
+$dr_name = Custom::where('code', 'dr_name')->first();
+
+$bio = Custom::where('code', 'bio')->first();
+
+?>
 @extends('site.layouts.app')
 
 @section('title', __('front.projects'))
@@ -10,26 +40,8 @@
 
 @section('content')
 
-<!-- Grid Gallery-->
-<section class="section section-xl bg-default text-center projects">
-    <div class="container isotope-wrap">
 
-      <div class="row row-50 isotope" data-lightgallery="group">
-        @foreach($projects as $project)
-        <div class="col-md-6 col-lg-4 isotope-item cl" data-filter="Type 3">
-          <!-- Thumbnail Modern-->
-          <article class="thumbnail thumbnail-modern">
-            <a class="thumbnail-modern-figure" href="{{ asset('design-site/site/images/'.$project->photo) }}" data-lightgallery="item">
-                <img src="{{ asset('design-site/site/images/'.$project->photo) }}" alt="{{ $project->name }}" width="370" height="303"/></a>
-            <div class="thumbnail-modern-caption">
-              <h5 class="thumbnail-modern-title"><a href="{{ route('front.projectDetails', $project->id) }}">{{ $project->name }}</a></h5>
-            </div>
-          </article>
-        </div>
-        @endforeach
-      </div>
+@include('site.home-page.inc-category7')
 
-    </div>
-</section>
 
 @stop

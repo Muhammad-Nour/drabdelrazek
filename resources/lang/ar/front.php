@@ -37,4 +37,7 @@ return
     'contact'=>'تواصل معنا',
     'testimonial'=>'آراء العملاء',
     'services'=>'خدماتنا',
+    'projects'=>'قصص نجاح',
+    'appointment'=>'حجز موعد',
+    'meettings'=>'لقاءات',
 ];

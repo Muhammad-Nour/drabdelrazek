@@ -9,6 +9,7 @@ use App\Models\Why_us;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\Meetting;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Service;
@@ -29,6 +30,8 @@ class FrontController extends Controller
 
         $testimonials = Testimonial::select('id','photo','name',
             'description_'.app()->getLocale().' as description','position_'.app()->getLocale().' as position')->get();
+
+        $meettings = Meetting::select('id','photo','video', 'title_'.app()->getLocale().' as title','description_'.app()->getLocale().' as description')->get(); //muhammad
 
         $about = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
         $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
@@ -59,7 +62,7 @@ class FrontController extends Controller
         
 
         return view('site.home-page.home-page', 
-            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp','secret1','secret2','secret3','secrets_video','projects','secrets_photo','blogs','bio','dr_name','questions','branches'));
+            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp','secret1','secret2','secret3','secrets_video','projects','secrets_photo','blogs','bio','dr_name','questions','branches','meettings'));
     }
 
     public function about()
@@ -72,6 +75,13 @@ class FrontController extends Controller
         $blogs = Blog::select('id','title_'.app()->getLocale().' as title','photo','description_'.app()->getLocale().' as description','date')->get();
 
         return view('site.blog',compact('blogs'));
+    }
+
+    public function blogDetails(Blog $blog) //muhammad
+    {
+        $blog = Blog::where('id',$blog->id)->first();
+
+        return view('site.blog-details',compact('blog'));
     }
 
     public function contact(Branch $branch)
@@ -94,6 +104,27 @@ class FrontController extends Controller
 
         return redirect(route('home'));
 
+    }
+
+    public function BookAppointment()
+    {
+        $questions = Why_us::select('id','description_'.app()->getLocale().' as description')->get();
+
+        return view('site.BookAppointment',compact('questions'));
+    }
+
+    public function projects()
+    {
+        $projects = Project::all();
+
+        return view('site.projects',compact('projects'));
+    }
+
+    public function meettings()
+    {
+        $meettings = Meetting::select('id','photo','video', 'title_'.app()->getLocale().' as title','description_'.app()->getLocale().' as description')->get();
+
+        return view('site.meettings',compact('meettings'));
     }
 
 }

@@ -53,7 +53,15 @@ Route::group(
         Route::get('branch/{branch}' , 'contact')->name('front.contact');
 
         Route::get('blog' , 'blog')->name('front.blog');
-        Route::get('appointment','appointment')->name('appointment.store');//muhammad
+        Route::get('blog/{blog}' , 'blogDetails')->name('front.blogdetails'); //muhammad
+
+        Route::get('projects','projects')->name('front.projects');//muhammad
+
+        Route::get('meettings' , 'meettings')->name('front.meettings'); //muhammad
+
+        Route::get('appointment','appointment')->name('appointment.store');
+        Route::get('BookAppointment','BookAppointment')->name('front.BookAppointment');
+
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
 
     });

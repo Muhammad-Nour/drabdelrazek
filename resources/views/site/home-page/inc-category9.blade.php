@@ -15,7 +15,7 @@
                     </div>
                     <div class="blog-content">
                         <h3 class="blog-title h5 font-body lh-base">
-                            <a href="{{route('front.blog')}}">{{$blog->title}}</a>
+                            <a href="{{route('front.blogdetails',$blog->id)}}">{{$blog->title}}</a>
                         </h3>
                         <!-- <div>{!!$blog->description!!}</div> -->
                          <a href="{{route('front.blog')}}"class="link-btn">Read More

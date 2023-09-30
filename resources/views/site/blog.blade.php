@@ -65,7 +65,7 @@ $bio = Custom::where('code', 'bio')->first();
                                     alt="Blog Image"></a></div>
                         <div class="blog-content">
                             <h2 class="blog-title h3">
-                            	<a href="blog-details.html">{{$blog->title}}</a>
+                            	<a href="{{route('front.blogdetails',$blog->id)}}">{{$blog->title}}</a>
                             </h2>
                             <p>{!!$blog->description!!}</p>
                             <a href="blog-details.html" class="link-btn">Read More
