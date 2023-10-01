@@ -60,6 +60,8 @@ Route::group(
         Route::get('meettings' , 'meettings')->name('front.meettings'); //muhammad
 
         Route::get('appointment','appointment')->name('appointment.store');
+        Route::post('message','message')->name('message.store');
+
         Route::get('BookAppointment','BookAppointment')->name('front.BookAppointment');
 
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');

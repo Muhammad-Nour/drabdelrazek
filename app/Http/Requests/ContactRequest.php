@@ -28,8 +28,8 @@ class ContactRequest extends FormRequest
     {
         return [
             'name'=>'string|required',
-            'phone'=>'string|required',
-            'email'=>'string|nullable|email',
+            'phone'=>'string|nullable',
+            'email'=>'string|required|email',
             'subject'=>'string|nullable',
             'message'=>'string|required',
             'notes'=>'string|nullable',
@@ -40,7 +40,6 @@ class ContactRequest extends FormRequest
         return [
             'required'  => 'الحقل مطلوب',
             'string'    => 'الحقل يجب أن يكون نصياً',
-            'unique'    => 'الحقل مكرر',
             'email'    => 'الحقل يجب أن يكون إيميل',
         ];
     }
@@ -51,9 +50,6 @@ class ContactRequest extends FormRequest
 
         if($this->route()->parameter('custom')){
             return array_merge($data,['updated_by' => auth()->id()]);
-        }
-        else{
-            return array_merge($data,['admin_id' => auth()->id()]);
         }
     }
 

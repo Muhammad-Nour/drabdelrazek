@@ -10,6 +10,7 @@ $branches = Branch::select('id', 'description_'.app()->getLocale().' as descript
         'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
 $phone    = Setting::where('code', 'phone')->first();
 $phone2    = Setting::where('code', 'phone2')->first();
+$email    = Setting::where('code', 'email')->first();
 $facebook = Setting::where('code', 'facebook')->first();
 $instgram = Setting::where('code', 'instgram')->first();
 $WhatsApp = Setting::where('code', 'WhatsApp')->first();
@@ -53,24 +54,61 @@ $bio = Custom::where('code', 'bio')->first();
 <section class="vs-contact-wrapper vs-contact-layout1 space-top space-md-bottom">
     <div class="container">
         <div class="row gx-60 align-items-center">
-            <div class="col-lg-12">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+
+                    <form action="{{route('message.store')}}" method="post"
+                        class="ajax-contact form-wrap3 mb-30" data-bg-color="#f3f6f7">
+                        @csrf
+                        <div class="form-title">
+                            <h3 class="mt-n2 fls-n2 mb-0">إرسل رسالتك بأمان</h3>
+                            <p class="text-theme mb-4">لن يتم نشر إيميلك الشخصي</p>
+                        </div>
+                        <div class="form-group mb-15">
+                            <input type="text" class="form-control style3" name="name"
+                                id="name" placeholder="الإسم" required> 
+                                <i class="fal fa-user"></i>
+                            </div>
+                        <div class="form-group mb-15">
+                            <input type="email" class="form-control style3" name="email"
+                                id="email" placeholder="الإيميل" required> 
+                                <i class="fal fa-envelope"></i>
+                            </div>
+                        <div class="form-group mb-15">
+                            <textarea name="message" id="message" cols="30" rows="3"
+                                class="form-control style3" placeholder="الرسالة" required>
+                                </textarea> 
+                                <i class="fal fa-pencil-alt"></i>
+                            </div>
+                        <div class="form-btn pt-15">
+                            <button class="vs-btn style2" type="submit">إرسال
+                                <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        <p class="form-messages mb-0 mt-3"></p>
+                    </form>
+                </div>
+            <div class="col-lg-6">
                 <div class="contact-information mb-30">
                     <h2 class="mt-n2">{{$branch->name_ar}}</h2>
+                    <h3 class="mt-n2">نحن هنا لخدمتك ، تواصل معنا فى أي وقت</h3>
 
                     <h3 class="h4 pt-2 mb-10">مواعيد العمل</h3>
                     <p>{{$branch->description_ar}}</p>
 
                     <h4 class="pt-2 mb-10">{{__('front.address')}}</h4>
                     <p class="fs-md"><i class="far fa-map-marker-alt me-2"></i>{{$branch->address_ar}}</p>
-                </div>
-                <div class="ratio ratio-21x9 contact-map mt-70 mb-30">
-                {!!$branch->map!!}
+
+                    <h4 class="pt-2 mb-10">{{__('front.email')}}</h4>
+                    <p class="fs-md"><i class="fal fa-envelope fa-sm me-2"></i>{{$email->value}}</p>
                 </div>
                     <h4 class="pt-2 mb-2">{{__('front.customer_service')}}</h4>
                     <h4 class="h3 font-theme2 mb-0">
                         <i class="far fa-phone-alt me-2"></i>{{$phone->value}} |
                         <i></i>{{$phone2->value}}
                     </h4>
+                </div>
+                <div class="ratio ratio-21x9 contact-map mt-70 mb-30">
+                {!!$branch->map!!}
                 </div>
             </div>
         </div>

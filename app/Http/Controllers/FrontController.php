@@ -13,10 +13,12 @@ use App\Models\Meetting;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Service;
+use App\Models\Contact;
 use App\Models\Blog;
 use App\Models\Testimonial;
-use App\Http\Requests\AppointmentRequest; //muhammad
-use App\Models\Appointment; //muhammad
+use App\Http\Requests\AppointmentRequest;
+use App\Http\Requests\ContactRequest;
+use App\Models\Appointment;
 
 use Illuminate\Http\Request;
 
@@ -95,7 +97,20 @@ class FrontController extends Controller
 
         return view('site.contact',compact('phone','phone2','email','branch'));
     }
-//muhammad
+
+    public function message(ContactRequest $request)
+    {
+        $request->validated();
+
+        Contact::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'message'=>$request->message
+        ]);
+
+        return redirect(route('home'));
+    }
+
     public function appointment(AppointmentRequest $request)
     {
         $request->validated();
