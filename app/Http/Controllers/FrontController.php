@@ -16,7 +16,9 @@ use App\Models\Service;
 use App\Models\Contact;
 use App\Models\Blog;
 use App\Models\Testimonial;
+use App\Models\Message;
 use App\Http\Requests\AppointmentRequest;
+use App\Http\Requests\ContactMessageRequest;
 use App\Http\Requests\ContactRequest;
 use App\Models\Appointment;
 
@@ -37,11 +39,8 @@ class FrontController extends Controller
 
         $about = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
         $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
-        $secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
-        $secret2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret2')->first();
-        $secret3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret3')->first();
+        
         $secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')->where('code', 'secrets_video')->first(); //muhammad
-        $secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
 
         $projects = Project::select('id','photo', 'name_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 
@@ -64,7 +63,7 @@ class FrontController extends Controller
         
 
         return view('site.home-page.home-page', 
-            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp','secret1','secret2','secret3','secrets_video','projects','secrets_photo','blogs','bio','dr_name','questions','branches','meettings'));
+            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp','secrets_video','projects','blogs','bio','dr_name','questions','branches','meettings'));
     }
 
     public function about()
@@ -98,17 +97,14 @@ class FrontController extends Controller
         return view('site.contact',compact('phone','phone2','email','branch'));
     }
 
-    public function message(ContactRequest $request)
+    public function message(ContactMessageRequest $request)
     {
         $request->validated();
+        
+        Message::create($request->validated());
 
-        Contact::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'message'=>$request->message
-        ]);
+        return redirect()->back()->withInput()->with('msg',__('site.MessageSent'));
 
-        return redirect(route('home'));
     }
 
     public function appointment(AppointmentRequest $request)
@@ -117,7 +113,7 @@ class FrontController extends Controller
 
         Appointment::create($request->validated());
 
-        return redirect(route('home'));
+        return redirect(route('front.BookAppointment'))->withInput()->with('msg',__('site.AppointmentBooked'));
 
     }
 

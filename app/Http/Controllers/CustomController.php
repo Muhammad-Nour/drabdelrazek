@@ -49,11 +49,8 @@ class CustomController extends Controller
      */
     public function store(CustomRequest $request , Custom $custom)
     {
-
         Custom::create($request->validated());
-
         return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
-
     }
 
     /**
@@ -96,9 +93,7 @@ class CustomController extends Controller
         else{
             unset($columns['photo']);
         }
-
         $custom->update($columns);
-
         return redirect(route('customs.index'))->with('msg',__('site.updatedMessage'));
     }
 
@@ -112,7 +107,6 @@ class CustomController extends Controller
     {
         deletePhoto($custom->photo);
         $custom->delete();
-
         return redirect(route('customs.index'))->with('msg',__('site.deletedMessage'));
     }
 }

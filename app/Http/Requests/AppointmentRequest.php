@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 
+
 class AppointmentRequest extends FormRequest
 {
     /**
@@ -27,12 +28,12 @@ class AppointmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => ['required','string','max:255'],
-            'phone'      => ['required','numeric'],
-            'height'      => ['required','numeric'],
-            'weight'      => ['required','numeric'],
-            'governorate'      => ['required','string','max:255'],
-            'city'      => ['required','string','max:255'],
+            'name'              => ['required','string','max:255','regex:/^(?!.*\d)[a-z\p{Arabic}\s]{2,66}$/ui'],
+            'phone'             => ['required','numeric','regex:/^01\d{9}$/'],
+            'height'            => ['required','numeric'],
+            'weight'            => ['required','numeric'],
+            'governorate'       => ['required','string','max:255','regex:/^(?!.*\d)[a-z\p{Arabic}\s]{2,66}$/ui'],
+            'city'              => ['required','string','max:255','regex:/^[\p{L}\p{N}\s]+$/ui'],
         ];  
     }
 
@@ -40,7 +41,18 @@ class AppointmentRequest extends FormRequest
         return [
             'required' => 'هذا الحقل مطلوب',
             'string' => 'الحقل المطلوب يجب أن يكون نص',
-            'max'=>'الإسم كبير جداً'
+            'max'=>'الإسم كبير جداً',
+
+            'height.numeric'=>'قيمة الطول غير صحيحة',
+            'weight.numeric'=>'قيمة الوزن غير صحيحة',
+
+            'phone.numeric'=>'صيغة الرقم غير صحيحة',
+            'phone.regex'=>'رقم الموبايل غير صحيح',
+
+            'name.regex'=>' الإسم غير صحيح',
+            'governorate.regex'=>' إسم المحافظة غير صحيح',
+            'city.regex'=>' إسم المدينة غير صحيح',
+
         ];
     }
 

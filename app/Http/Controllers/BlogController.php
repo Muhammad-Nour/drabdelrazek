@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\UploadNewsPhoto;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -13,13 +12,12 @@ class BlogController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:news', ['only' => ['index']]);
-        $this->middleware('permission:add_news', ['only' => ['create','store']]);
-        $this->middleware('permission:edit_news', ['only' => ['edit','update']]);
-        $this->middleware('permission:delete_news', ['only' => ['destroy']]);
+        $this->middleware('permission:blogs', ['only' => ['index']]);
+        $this->middleware('permission:add_blogs', ['only' => ['create','store']]);
+        $this->middleware('permission:edit_blogs', ['only' => ['edit','update']]);
+        $this->middleware('permission:delete_blogs', ['only' => ['destroy']]);
     }
 
-    use UploadNewsPhoto;
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +29,7 @@ class BlogController extends Controller
 
         $paginate = true ;
 
-        return view('admin.news.news-show',compact('blogs'));
+        return view('admin.blogs.blog-show',compact('blogs'));
     }
 
     /**
@@ -41,36 +39,36 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.news.news-add');
+        return view('admin.blogs.blog-add');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\NewsRequest  $request
+     * @param  \App\Http\Requests\BlogRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NewsRequest $request)
+    public function store(BlogRequest $request)
     {
         $columns = $request->validated();
         if($request->hasFile('photo')){
-            $photo = storePhoto($request, 'photo', 'news');
+            $photo = storePhoto($request, 'photo', 'blog');
             $columns['photo'] = $photo;
         }
 
-        News::create($columns);
+        Blog::create($columns);
 
-        return redirect(route('news.create'))->with('msg',__('site.addedMessage'));
+        return redirect(route('blogs.create'))->with('msg',__('site.addedMessage'));
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\blogs  $blogs
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show(Blog $blog)
     {
         //
     }
@@ -78,44 +76,45 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\blogs  $blogs
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit(Blog $blog)
     {
-        return view('admin.news.news-edit',compact('news'));
+        return view('admin.blogs.blog-edit',compact('blog'));
     }
 
 
-    public function update(NewsRequest $request, News $news)
+    public function update(BlogRequest $request, Blog $blog)
     {
         $columns = $request->validated();
         if($request->hasFile('photo')){
-            deletePhoto($news->photo);
-            $photo = storePhoto($request, 'photo', 'news');
+            deletePhoto($blog->photo);
+            $photo = storePhoto($request, 'photo', 'blog');
             $columns['photo'] = $photo;
         }
         else{
             unset($columns['photo']);
         }
 
-        $news->update($columns);
+        $blog->update($columns);
 
-        return redirect(route('news.index'))->with('msg',__('site.updatedMessage'));
+        return redirect(route('blogs.index'))->with('msg',__('site.updatedMessage'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\News  $news
+     * @param  \App\Models\blogs  $blogs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(Blog $blog)
     {
-        deletePhoto($news->photo);
-        $news->delete();
+        deletePhoto($blog->photo);
 
-        return redirect(route('news.index'))->with('msg',__('site.deletedMessage'));
+        $blog->delete();
+
+        return redirect(route('blogs.index'))->with('msg',__('site.deletedMessage'));
 
     }
 }

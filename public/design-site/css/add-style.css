@@ -4,3 +4,27 @@
     outline: 0;
     transition: all ease .4s
 }
+
+.form-error {
+    color: #ff0707;
+}
+
+.border-red {
+    height: 60px;
+    color: var(--title-color);
+    font-size: 14px;
+    border-radius: 9999px;
+    border: 1px solid #ff0707;
+    padding-left: 30px;
+    transition: all ease .4s
+}
+
+.text-border-red{
+    height: 60px;
+    color: var(--title-color);
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #ff0707;
+    padding-left: 30px;
+    transition: all ease .4s
+}

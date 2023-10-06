@@ -32,10 +32,10 @@ class BlogRequest extends FormRequest
         }
 
         return [
-            'name_ar'      => ['required','string','max:255'],
-            'name_en'      => ['required','string','max:255'],
+            'title_ar'      => ['required','string','max:255'],
+            'title_en'      => ['nullable','string','max:255'],
             'description_ar'        => 'required|string',
-            'description_en'        => 'required|string',
+            'description_en'        => 'nullable|string',
             'date'=>'date|required',
             'photo'=>[$requiredRule, 'image'],
         ];
@@ -46,7 +46,6 @@ class BlogRequest extends FormRequest
             'required' => 'هذا الحقل مطلوب',
             'string' => 'الحقل المطلوب يجب أن يكون نص',
             'name.max' => 'يجب ألا يزيد الإسم عن 255 حرف و رقم',
-            'name.unique' => 'اسم الصنف مكرر',
             'date'=>'هذا الحقل يجب ان يكون تاريخ',
         ];
     }
@@ -55,7 +54,7 @@ class BlogRequest extends FormRequest
     {
         $data =  parent::validated();
 
-        if($this->route()->parameter('news')){
+        if($this->route()->parameter('blogs')){
             return array_merge($data,['updated_by' => auth()->id()]);
         }
         else{

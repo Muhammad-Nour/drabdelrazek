@@ -23,15 +23,15 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="row">
-							<div class="col-6 col-md-3">
+							<div class="col-6 col-md-2">
 								<p class="key">{{__('site.code')}}</p>
 								<p class="value">{{$branch->id}}</p>
 							</div>
-							<div class="col-6 col-md-3">
+							<div class="col-6 col-md-2">
 								<p class="key">{{__('site.name_ar')}}</p>
 								<p class="value">{{$branch->name_ar}}</p>
 							</div>
-							<div class="col-6 col-md-3">
+							<div class="col-6 col-md-3 display-none">
 								<p class="key">{{__('site.name_en')}}</p>
 								<p class="value">{{$branch->name_en}}</p>
 							</div>
@@ -39,17 +39,21 @@
 								<p class="key">{{__('site.address_ar')}}</p>
 								<p class="value">{{$branch->address_ar}}</p>
 							</div>
-							<div class="col-6 col-md-3">
+							<div class="col-6 col-md-3 display-none">
 								<p class="key">{{__('site.address_en')}}</p>
 								<p class="value">{{$branch->address_en}}</p>
+							</div>
+							<div class="col-6 col-md-3">
+								<p class="key">{{__('site.description_ar')}}</p>
+								<p class="value">{{$branch->description_ar}}</p>
+							</div>
+							<div class="col-6 col-md-3 display-none">
+								<p class="key">{{__('site.description_en')}}</p>
+								<p class="value">{{$branch->description_en}}</p>
 							</div>		
 							<div class="col-6 col-md-3">
 								<p class="key">{{__('site.map')}}</p>
 								<p class="value">{{$branch->map}}</p>
-							</div>
-							<div class="col-6 col-md-3">
-								<p class="key">{{__('site.image')}}</p>
-								<img src="{{asset('gallery/'.$branch->photo)}}"style="width:75px;height:75px;">
 							</div>
 							<div class="col-6 col-md-2">
 								<p class="key">{{__('site.actions')}}</p>
@@ -80,7 +84,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="card">
+	<div class="card display-none">
 		<div class="card-body">
 			@can('add_branches')
 			<div style="margin-bottom:15px">

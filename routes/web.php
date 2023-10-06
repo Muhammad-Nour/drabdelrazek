@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectGalleryController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BranchGalleryController;
@@ -60,7 +60,7 @@ Route::group(
         Route::get('meettings' , 'meettings')->name('front.meettings'); //muhammad
 
         Route::get('appointment','appointment')->name('appointment.store');
-        Route::post('message','message')->name('message.store');
+        Route::get('message','message')->name('message.store');
 
         Route::get('BookAppointment','BookAppointment')->name('front.BookAppointment');
 
@@ -115,7 +115,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('partners', PartnerController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('contacts', ContactController::class);
-	Route::resource('news', NewsController::class);
+	Route::resource('blogs', BlogController::class);
     Route::resource('branches', BranchController::class);
     Route::resource('branchGallery', BranchGalleryController::class);
 });

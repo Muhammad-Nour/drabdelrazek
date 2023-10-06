@@ -30,9 +30,11 @@ class BranchRequest extends FormRequest
             'name_ar'      => 
             ['required','string','max:255',Rule::unique('branches')->ignore($this->route()->parameter('branch'))],
             'name_en'      => 
-            ['required','string','max:255',Rule::unique('branches')->ignore($this->route()->parameter('branch'))],
+            ['nullable','string','max:255',Rule::unique('branches')->ignore($this->route()->parameter('branch'))],
             'address_ar'        => 'required|string',
-            'address_en'        => 'required|string',
+            'address_en'        => 'nullable|string',
+            'description_ar'        => 'required|string',
+            'description_en'        => 'nullable|string',
             'map'=>'string|required'
         ];  
     }

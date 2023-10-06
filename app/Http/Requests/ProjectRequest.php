@@ -30,8 +30,10 @@ class ProjectRequest extends FormRequest
         }
 
         return [
-            'name_ar'=>['string','required'],
-            'name_en'=>['string','required'],
+            'name_ar'=>['string','nullable'],
+            'name_en'=>['string','nullable'],
+            'description_ar'=>['string','nullable'],
+            'description_en'=>['string','nullable'],
             'photo'=>['image',$requiredRule],
         ];
     }

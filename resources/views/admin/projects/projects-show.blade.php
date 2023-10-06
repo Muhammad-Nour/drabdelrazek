@@ -28,16 +28,25 @@
 									<p class="key">{{__('site.code')}}</p>
 									<p class="value">{{$project->id}}</p>
 								</div>
-								<div class="col-6 col-md-3">
+								<div class="col-6 col-md-2">
 									<p class="key">{{__('site.name_ar')}}</p>
 									<p class="value">{{$project->name_ar}}</p>
 								</div>
-								<div class="col-6 col-md-3">
+								<div class="col-6 col-md-3 display-none">
 									<p class="key">{{__('site.name_en')}}</p>
 									<p class="value">{{$project->name_en}}</p>
 								</div>
 
-								<div class="col-6 col-md-2">
+								<div class="col-6 col-md-3">
+									<p class="key">{{__('site.description_ar')}}</p>
+									<p class="value">{{$project->description_ar}}</p>
+								</div>
+								<div class="col-6 col-md-3 display-none">
+									<p class="key">{{__('site.description_en')}}</p>
+									<p class="value">{{$project->description_en}}</p>
+								</div>
+
+								<div class="col-6 col-md-3">
 									<p class="key">{{__('site.image')}}</p>
 									<img src="{{asset('images/'.$project->photo)}}">
 								</div>
@@ -51,7 +60,7 @@
 
 										<div class="dropdown-menu">
 											@can('details_projects')
-											<a href="{{route('project.details',$project->id)}}" class="dropdown-item">
+											<a href="{{route('project.details',$project->id)}}" class="dropdown-item display-none">
 												<i class="fa fa-info-circle"></i> {{__('site.details')}}</a>
 												@endcan()
 												@can('edit_projects')

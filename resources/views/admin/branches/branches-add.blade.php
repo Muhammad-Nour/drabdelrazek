@@ -32,34 +32,46 @@
 							<input type="text" class="form-control" name="name_ar" required 
 							value="{{old('name_ar')}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.name_en')}}</label>
-							<input type="text" class="form-control" name="name_en" required 
+							<input type="text" class="form-control" name="name_en" 
 							value="{{old('name_en')}}">
 						</div>
 						<div class="form-group">
-								<label>{{__('site.address_ar')}}</label>
-								<input type="text" class="form-control" name="address_ar" required 
+							<label>{{__('site.address_ar')}}</label>
+							<input type="text" class="form-control" name="address_ar" required 
 							value="{{old('address_ar')}}">
-							</div>
+						</div>
 
-							<div class="form-group">
-								<label>{{__('site.address_en')}}</label>
-								<input type="text" class="form-control" name="address_en" required 
+						<div class="form-group display-none">
+							<label>{{__('site.address_en')}}</label>
+							<input type="text" class="form-control" name="address_en" 
 							value="{{old('address_en')}}">
-							</div>
+						</div>
 
-							<div class="form-group">
+						<div class="form-group">
+							<label>{{__('site.description_ar')}}</label>
+							<input type="text" class="form-control" name="description_ar" required 
+							value="{{old('description_ar')}}">
+						</div>
+
+						<div class="form-group display-none">
+							<label>{{__('site.description_en')}}</label>
+							<input type="text" class="form-control" name="description_en" 
+							value="{{old('description_en')}}">
+						</div>
+
+						<div class="form-group">
 							<label>{{__('site.map')}}</label>
 							<input type="text" class="form-control" name="map" required 
 							value="{{old('map')}}">
 						</div>
 
-							<div class="form-grou">
-								<label>{{__('site.add_image')}}</label>
-								<input type="file" class="form-control" name="photo">
-							</div>
-							<div class="form-group ">
+						<div class="form-group display-none">
+							<label>{{__('site.add_image')}}</label>
+							<input type="file" class="form-control" name="photo">
+						</div>
+						<div class="form-group display-none">
 							<label>{{__('site.add_gallery')}}</label>
 							<input type="file" class="form-control" name="gallery[]" multiple>
 						</div>

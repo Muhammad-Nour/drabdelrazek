@@ -34,7 +34,7 @@
 							<input type="text" class="form-control" name="name_ar" required 
 							value="{{ isset($branch) ? $branch->name_ar : ''}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.name_en')}}</label>
 							<input type="text" class="form-control" name="name_en" required 
 							value="{{ isset($branch) ? $branch->name_en : ''}}">
@@ -44,17 +44,27 @@
 							<input type="text" class="form-control" name="address_ar" required 
 							value="{{ isset($branch) ? $branch->address_ar : ''}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.address_en')}}</label>
 							<input type="text" class="form-control" name="address_en" required 
 							value="{{ isset($branch) ? $branch->address_en : ''}}">
+						</div>
+						<div class="form-group">
+							<label>{{__('site.description_ar')}}</label>
+							<input type="text" class="form-control" name="description_ar" required 
+							value="{{ isset($branch) ? $branch->description_ar : ''}}">
+						</div>
+						<div class="form-group display-none">
+							<label>{{__('site.description_en')}}</label>
+							<input type="text" class="form-control" name="description_en" required 
+							value="{{ isset($branch) ? $branch->description_en : ''}}">
 						</div>
 						<div class="form-group">
 							<label>{{__('site.map')}}</label>
 							<input type="text" class="form-control" name="map" required 
 							value="{{ isset($branch) ? $branch->map : ''}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<strong>{{__('site.image')}}</strong>
 							<img src="{{asset('gallery/'.$branch->photo)}}" style="width:100px;height:100px;">
 							<input type="file" class="form-control" name="photo">

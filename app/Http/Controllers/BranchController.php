@@ -8,16 +8,11 @@ use App\Models\BranchGallery;
 use App\Http\Requests\BranchRequest;
 use Illuminate\Support\Facades\Auth;
 
-use App\Traits\UploadBranchPhoto;
-use App\Traits\UploadBranchGallery;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-    use UploadBranchPhoto ;
-    use UploadBranchGallery;
-
     function __construct()
     {
         $this->middleware('permission:branches', ['only' => ['index']]);
@@ -62,16 +57,12 @@ class BranchController extends Controller
 
         $request->validated();
 
-        $path  = $this->UploadBranchPhoto($request,'branches');
-
         Branch::create([
             'name_ar'=>$request->name_ar,
-            'name_en'=>$request->name_en,
             'address_ar'=>$request->address_ar,
-            'address_en'=>$request->address_en,
+            'description_ar'=>$request->description_ar,
             'map'=>$request->map,
             'admin_id' => Auth::user()->id,
-            'photo'=>$path
         ]);
 
         DB::commit();
@@ -110,33 +101,15 @@ class BranchController extends Controller
      */
     public function update(BranchRequest $request, Branch $branch)
     {
-                $request->validated();
-
-        if($request->hasFile('photo'))
-        {
-
-            $path  = $this->UploadBranchPhoto($request,'branches');
-
+            $request->validated();
             $branch->update([
                 'name_ar'=>$request->name_ar,
-                'name_en'=>$request->name_en,
                 'address_ar'=>$request->address_ar,
-                'address_en'=>$request->address_en,
-                'map'=>$request->map,
-                'updated_by' => Auth::user()->id,
-                'photo'=>$path
-            ]);
-
-        }else{
-            $branch->update([
-                'name_ar'=>$request->name_ar,
-                'name_en'=>$request->name_en,
-                'address_ar'=>$request->address_ar,
-                'address_en'=>$request->address_en,
+                'description_ar'=>$request->description_ar,
                 'map'=>$request->map,
                 'updated_by' => Auth::user()->id,
             ]);
-        }
+        
 
         return redirect(route('branches.index'))->with('msg',__('site.updatedMessage'));
 
@@ -152,27 +125,27 @@ class BranchController extends Controller
             compact('galleries','branch','branches'));
     }
 
-    public function addImage(Branch $branch , Request $request)
-    {
-        if($request->hasFile('gallery'))
-        {
-            $files = $request->file('gallery');
+    // public function addImage(Branch $branch , Request $request)
+    // {
+    //     if($request->hasFile('gallery'))
+    //     {
+    //         $files = $request->file('gallery');
 
-            foreach($files as $file){
+    //         foreach($files as $file){
 
-                $filename = $file->getClientOriginalName();
+    //             $filename = $file->getClientOriginalName();
 
-                $path  = $file->storeAs('branches',$filename,'galleries');
+    //             $path  = $file->storeAs('branches',$filename,'galleries');
 
-                BranchGallery::create([
-                    'branch_id' => $request->branch_id,
-                    'photo' => $path,
-                    'admin_id' => Auth::user()->id,
-                ]);
-            }
-        }
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
-    }
+    //             BranchGallery::create([
+    //                 'branch_id' => $request->branch_id,
+    //                 'photo' => $path,
+    //                 'admin_id' => Auth::user()->id,
+    //             ]);
+    //         }
+    //     }
+    //     return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+    // }
 
     /**
      * Remove the specified resource from storage.

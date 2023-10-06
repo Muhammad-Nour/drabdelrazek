@@ -29,17 +29,25 @@
 					<div class="card-body">
 						<div class="form-group">
 							<label>{{__('site.name_ar')}}</label>
-							<input type="text" class="form-control" name="name_ar" required value="{{old('name_ar')}}">
+							<input type="text" class="form-control" name="name_ar" value="{{old('name_ar')}}">
+						</div>
+						<div class="form-group display-none">
+							<label>{{__('site.name_en')}}</label>
+							<input type="text" class="form-control" name="name_en" value="{{old('name_en')}}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.name_en')}}</label>
-							<input type="text" class="form-control" name="name_en" required value="{{old('name_en')}}">
+							<label>{{__('site.description_ar')}}</label>
+							<input type="text" class="form-control" name="description_ar" value="{{old('description_ar')}}">
+						</div>
+						<div class="form-group display-none">
+							<label>{{__('site.description_en')}}</label>
+							<input type="text" class="form-control" name="description_en" value="{{old('description_en')}}">
 						</div>
 						<div class="form-group">
 							<label>{{__('site.image')}}</label>
 							<input type="file" class="form-control" name="photo" required>
 						</div>
-						<div class="form-group ">
+						<div class="form-group display-none">
 							<label>{{__('site.add_gallery')}}</label>
 							<input type="file" class="form-control" name="gallery[]" multiple>
 						</div>

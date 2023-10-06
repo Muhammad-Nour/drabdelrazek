@@ -37,7 +37,7 @@
 							<label>{{__('site.description_ar')}}</label>
 							<textarea class="ckeditor" name="description_ar">{{ old('description_ar', $custom->description_ar) }}</textarea>
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.description_en')}}</label>
 							<textarea class="ckeditor" name="description_en">{{ old('description_en', $custom->description_en) }}</textarea>
 						</div>

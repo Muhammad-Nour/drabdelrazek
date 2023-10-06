@@ -8,9 +8,6 @@ use App\Models\ProjectGallery;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\ProjectGalleryRequest;
 
-use App\Traits\UploadProjectGallery;
-use App\Traits\UploadProjectPhoto;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -18,9 +15,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-
-    use UploadProjectGallery;
-    use UploadProjectPhoto;
 
     function __construct()
     {
@@ -70,7 +64,7 @@ class ProjectController extends Controller
 
             $columns = $request->validated();
             if($request->hasFile('photo')){
-                $photo = storePhoto($request, 'photo', 'projects');
+                $photo = storePhoto($request, 'photo', 'project');
                 $columns['photo'] = $photo;
             }
 

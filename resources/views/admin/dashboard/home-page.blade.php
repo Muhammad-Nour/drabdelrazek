@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', 'المبدأ للديكور')
+@section('title', 'د / عبدالرازق محمد')
 
 @section('css')
 @stop

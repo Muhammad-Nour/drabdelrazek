@@ -24,15 +24,15 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-6 col-md-1">
+								<div class="col-6 col-md-2">
 									<p class="key">{{__('site.code')}}</p>
 									<p class="value">{{$custom->code}}</p>
 								</div>
-                                <div class="col-6 col-md-4">
+                                <div class="col-6 col-md-7">
 									<p class="key">{{__('site.description_ar')}}</p>
 									<div class="value" style="height: 124px;overflow: hidden;">{!!$custom->description_ar!!}</div>
 								</div>
-								<div class="col-6 col-md-4">
+								<div class="col-6 col-md-4 display-none">
 									<p class="key">{{__('site.description_en')}}</p>
 									<div class="value" style="height: 124px;overflow: hidden;">{!!$custom->description_en!!}</div>
 								</div>

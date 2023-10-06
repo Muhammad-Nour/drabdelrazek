@@ -73,6 +73,89 @@
           </li>
           @endcan('customs')
 
+          @can('branches')
+          <li class="nav-item {{ request()->routeIs('branches.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('branches.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.branches') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('branches.index') }}" class="nav-link {{ request()->routeIs('branches.index') ? 'sub-active' : '' }} ">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_branches')
+              <li class="nav-item">
+                <a href="{{ route('branches.create') }}" class="nav-link {{ request()->routeIs('branches.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_branches')
+            </ul>
+          </li>
+          @endcan('branches')
+          @can('blogs')
+          <li class="nav-item {{ request()->routeIs('blogs.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('blogs.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.blogs') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('blogs.index') }}" class="nav-link {{ request()->routeIs('blogs.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_blogs')
+              <li class="nav-item">
+                <a href="{{ route('blogs.create') }}" class="nav-link {{ request()->routeIs('blogs.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_blogs')
+            </ul>
+          </li>
+          @endcan('blogs')
+
+          @can('projects')
+          <li class="nav-item {{ request()->routeIs('projects.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.projects') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('projects.index') }}" class="nav-link {{ request()->routeIs('projects.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_projects')
+              <li class="nav-item">
+                <a href="{{ route('projects.create') }}" class="nav-link {{ request()->routeIs('projects.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_projects')
+            </ul>
+          </li>
+          @endcan('projects')
+
           @can('partners')
           <li class="nav-item {{ request()->routeIs('partners.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('partners.*') ? 'active' : '' }}">
@@ -128,62 +211,6 @@
             </ul>
           </li>
           @endcan('contacts')
-
-          @can('news')
-          <li class="nav-item {{ request()->routeIs('news.*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                {{ __('site.news') }}
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.index') ? 'sub-active' : '' }}">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>{{ __('site.show') }}</p>
-                </a>
-              </li>
-              @can('add_news')
-              <li class="nav-item">
-                <a href="{{ route('news.create') }}" class="nav-link {{ request()->routeIs('news.create') ? 'sub-active' : '' }}">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>{{ __('site.add') }}</p>
-                </a>
-              </li>
-              @endcan('add_news')
-            </ul>
-          </li>
-          @endcan('news')
-
-          @can('projects')
-          <li class="nav-item {{ request()->routeIs('projects.*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                {{ __('site.projects') }}
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('projects.index') }}" class="nav-link {{ request()->routeIs('projects.index') ? 'sub-active' : '' }}">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>{{ __('site.show') }}</p>
-                </a>
-              </li>
-              @can('add_projects')
-              <li class="nav-item">
-                <a href="{{ route('projects.create') }}" class="nav-link {{ request()->routeIs('projects.create') ? 'sub-active' : '' }}">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>{{ __('site.add') }}</p>
-                </a>
-              </li>
-              @endcan('add_projects')
-            </ul>
-          </li>
-          @endcan('projects')
 
           @can('sliders')
           <li class="nav-item {{ request()->routeIs('sliders.*') ? 'menu-open' : '' }}">
@@ -269,33 +296,6 @@
           </li>
           @endcan('products')
 
-          @can('branches')
-          <li class="nav-item {{ request()->routeIs('branches.*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->routeIs('branches.*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                {{ __('site.branches') }}
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('branches.index') }}" class="nav-link {{ request()->routeIs('branches.index') ? 'sub-active' : '' }} ">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>{{ __('site.show') }}</p>
-                </a>
-              </li>
-              @can('add_branches')
-              <li class="nav-item">
-                <a href="{{ route('branches.create') }}" class="nav-link {{ request()->routeIs('branches.create') ? 'sub-active' : '' }}">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>{{ __('site.add') }}</p>
-                </a>
-              </li>
-              @endcan('add_branches')
-            </ul>
-          </li>
-          @endcan('branches')
           @can('clients')
           <li class="nav-item {{ request()->routeIs('users.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
