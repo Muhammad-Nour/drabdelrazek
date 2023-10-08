@@ -28,20 +28,20 @@
 					@csrf
 					@method('PUT')
 					<div class="card-body">
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.title_ar')}}</label>
 							<input class="form-control" name="title_ar" value="{{old('title_ar',$slider->title_ar)}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.title_en')}}</label>
 							<input type="text" class="form-control" name="title_en" value="{{old('title_ar',$slider->title_en)}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.description_ar')}}</label>
 							<textarea class="ckeditor" name="description_ar" >{{old('title_ar',$slider->description_ar)}}
 							</textarea>
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.description_en')}}</label>
 							<textarea class="ckeditor" name="description_en" >{{old('title_ar',$slider->description_en)}}
 							</textarea>

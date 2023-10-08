@@ -27,19 +27,19 @@
 				<form action="{{route('sliders.store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="card-body">
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.title_ar')}}</label>
 							<input type="text" class="form-control" name="title_ar" value="{{old('title_ar')}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.title_en')}}</label>
 							<input type="text" class="form-control" name="title_en" value="{{old('title_en')}}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.description_ar')}}</label>
 							<textarea class="ckeditor" name="description_ar">{{old('description_ar')}}</textarea>
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label>{{__('site.description_en')}}</label>
 							<textarea class="ckeditor" name="description_en" required>{{old('description_en')}}</textarea>
 						</div>

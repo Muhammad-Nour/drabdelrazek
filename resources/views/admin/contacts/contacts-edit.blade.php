@@ -45,20 +45,10 @@
 							value="{{ isset($contact) ? $contact->email : ''}}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.subject')}}</label>
-							<input type="text" class="form-control" name="subject" required
-							value="{{ isset($contact) ? $contact->subject : ''}}">
-						</div>
-						<div class="form-group">
 							<label>{{__('site.message')}}</label>
-							<input type="text" class="form-control" name="message" required
-							value="{{ isset($contact) ? $contact->message : ''}}">
+							<textarea class="form-control" name="description" required>{{old('description',$contact->description) }}</textarea>
 						</div>
-						<div class="form-group">
-							<label>{{__('site.notes')}}</label>
-							<input type="text" class="form-control" name="notes" required
-							value="{{ isset($contact) ? $contact->notes : ''}}">
-						</div>
+						
 					</div>
 					<!-- /.card-body -->
 					<div class="card-footer">

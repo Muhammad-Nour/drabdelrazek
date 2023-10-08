@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', __('site.contacts'))
+@section('title', __('site.appointments'))
 
 @section('css')
 @stop
@@ -8,14 +8,15 @@
 @section('js')
 @stop
 
-@section('title-page',__('site.contacts'))
+
+@section('title-page',__('site.appointments'))
 
 @section('content')
 
 <!-- Main content -->
-<div class="main-stage contacts">
+<div class="main-stage appointments">
 	<div class="row">
-		<div class="col-md-7 m-auto">
+		<div class="col-md-11 m-auto">
 			@include('partial.alerts')
 			<div class="card">
 				<div class="card-header">
@@ -23,7 +24,7 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="{{route('contacts.store')}}" method="post">
+				<form action="{{route('appointments.store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="card-body">
 						<div class="form-group">
@@ -35,12 +36,20 @@
 							<input type="text" class="form-control" name="phone" required value="{{old('phone')}}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.email')}}</label>
-							<input type="text" class="form-control" name="email" value="{{old('email')}}">
+							<label>{{__('site.governorate')}}</label>
+							<input type="text" class="form-control" name="governorate" required value="{{old('governorate')}}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.message')}}</label>
-							<textarea class="form-control" name="description" required>{{old('description')}}</textarea>
+							<label>{{__('site.city')}}</label>
+							<input type="text" class="form-control" name="city" required value="{{old('city')}}">
+						</div>
+						<div class="form-group">
+							<label>{{__('site.height')}}</label>
+							<input type="text" class="form-control" name="height" required value="{{old('height')}}">
+						</div>
+						<div class="form-group">
+							<label>{{__('site.weight')}}</label>
+							<input type="text" class="form-control" name="weight" required value="{{old('Weight')}}">
 						</div>
 					</div>
 				</div>

@@ -12,5 +12,15 @@ class Appointment extends Model
     protected $guarded = [];
     
     protected $primaryKey = 'id';
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Admin::class, 'updated_by');
+    }
     
 }

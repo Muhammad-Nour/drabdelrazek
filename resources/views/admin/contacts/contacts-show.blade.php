@@ -37,20 +37,12 @@
 									<p class="value">{{$contact->phone}}</p>
 								</div>
 								<div class="col-6 col-md-3">
-									<p class="key">{{__('site.subject')}}</p>
-									<p class="value">{{$contact->subject}}</p>
-								</div>
-								<div class="col-6 col-md-3">
 									<p class="key">{{__('site.email')}}</p>
 									<p class="value">{{$contact->email}}</p>
-								</div>		
-								<div class="col-6 col-md-3">
-									<p class="key">{{__('site.notes')}}</p>
-									<p class="value">{{$contact->notes}}</p>
 								</div>
-								<div class="col-6 col-md-3">
+								<div class="col-6 col-md-6">
 									<p class="key">{{__('site.message')}}</p>
-									<p class="value">{{$contact->message}}</p>
+									<p class="value">{{$contact->description}}</p>
 								</div>
 
 								<div class="col-6 col-md-2">

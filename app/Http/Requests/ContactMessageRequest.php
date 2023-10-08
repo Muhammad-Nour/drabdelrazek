@@ -27,7 +27,7 @@ class ContactMessageRequest extends FormRequest
             'name'              => ['required','string','max:255','regex:/^(?!.*\d)[a-z\p{Arabic}\s]{2,66}$/ui'],
             'phone'             => ['required','numeric','regex:/^01\d{9}$/'],
             'email'             => ['nullable','email'],
-            'description'           => ['string','required','regex:/^[\p{L}\p{N}\s]+$/ui']
+            'description'       => ['string','required','regex:/^[\p{L}\p{N}\s]+$/ui']
         ];  
     }
 
@@ -40,8 +40,8 @@ class ContactMessageRequest extends FormRequest
             'phone.numeric'     =>'صيغة الرقم غير صحيحة',
             'phone.regex'       =>'رقم الموبايل غير صحيح',
 
-            'name.regex'        =>'الإسم يجب أن يتكو من أحرف فقط',
-            'description.regex'     =>'الرسالة يجب أن تتكو من حروف و أرقام فقط',
+            'name.regex'        =>'الإسم يجب أن يتكون من أحرف فقط',
+            'description.regex'     =>'الرسالة يجب أن تتكون من حروف و أرقام فقط',
         ];
     }
 
@@ -49,6 +49,10 @@ class ContactMessageRequest extends FormRequest
     {
         $data =  parent::validated();
 
-        return array_merge($data);
+        if(request()->isMethod('put')){
+            return array_merge($data,['updated_by' => auth()->id()]);
+        }elseif(request()->isMethod('get')){
+            return array_merge($data,['updated_by' => null]);
+        }
     }
 }

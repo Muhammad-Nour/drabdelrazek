@@ -60,6 +60,17 @@ class AppointmentRequest extends FormRequest
     {
         $data =  parent::validated();
 
-        return array_merge($data);
+        if(request()->isMethod('post')){
+            return array_merge($data,['admin_id' => auth()->id()]);
+        }
+
+        elseif(request()->isMethod('put')){
+            return array_merge($data,['updated_by' => auth()->id()]);
+        }
+
+        elseif(request()->isMethod('get'))
+        {
+            return array_merge($data,['admin_id' => null,'updated_by' => null,]);
+        }
     }
 }

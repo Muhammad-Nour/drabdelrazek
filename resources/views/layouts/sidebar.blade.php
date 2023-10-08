@@ -156,7 +156,7 @@
           </li>
           @endcan('projects')
 
-          @can('partners')
+<!--           @can('partners')
           <li class="nav-item {{ request()->routeIs('partners.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('partners.*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -182,7 +182,7 @@
               @endcan('add_partners')
             </ul>
           </li>
-          @endcan('partners')
+          @endcan('partners') -->
 
           @can('contacts')
           <li class="nav-item {{ request()->routeIs('contacts.*') ? 'menu-open' : '' }}">
@@ -211,6 +211,34 @@
             </ul>
           </li>
           @endcan('contacts')
+
+          @can('appointments')
+          <li class="nav-item {{ request()->routeIs('appointments.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('appointments.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.appointments') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('appointments.index') }}" class="nav-link {{ request()->routeIs('appointments.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_appointment')
+              <li class="nav-item">
+                <a href="{{ route('appointments.create') }}" class="nav-link {{ request()->routeIs('appointments.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_appointment')
+            </ul>
+          </li>
+          @endcan('appointments')
 
           @can('sliders')
           <li class="nav-item {{ request()->routeIs('sliders.*') ? 'menu-open' : '' }}">

@@ -109,7 +109,6 @@ class FrontController extends Controller
 
     public function appointment(AppointmentRequest $request)
     {
-        $request->validated();
 
         Appointment::create($request->validated());
 

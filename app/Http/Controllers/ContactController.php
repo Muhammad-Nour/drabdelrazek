@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
-use App\Http\Requests\ContactRequest;
+use App\Models\Message;
+use App\Http\Requests\ContactMessageRequest;
 
 class ContactController extends Controller
 {
@@ -21,7 +21,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::paginate(20);
+        $contacts = Message::paginate(20);
 
         $paginate = true;
 
@@ -44,9 +44,9 @@ class ContactController extends Controller
      * @param  \App\Http\Requests\ContactRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(ContactMessageRequest $request)
     {
-        Contact::create($request->validated());
+        Message::create($request->validated());
 
         return redirect(route('contacts.create'))->with('msg',__('site.addedMessage'));
     }
@@ -68,7 +68,7 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $Contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Message $contact)
     {
         return view('admin.contacts.contacts-edit',compact('contact'));
     }
@@ -80,7 +80,7 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $Contact
      * @return \Illuminate\Http\Response
      */
-    public function update(ContactRequest $request, Contact $contact)
+    public function update(ContactMessageRequest $request, Message $contact)
     {
         $contact->update($request->validated());
 
@@ -93,7 +93,7 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $Contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Message $contact)
     {
         $contact->delete();
 

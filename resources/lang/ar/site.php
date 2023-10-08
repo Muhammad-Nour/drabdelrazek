@@ -34,6 +34,7 @@ return [
 	'updatedMessage'=>'تم التحديث بنجاح ',
 	'deletedMessage'=>'تم الحذف بنجاح ',
 	'AppointmentBooked'=>'تم حجز الموعد',
+	'appointments'=>'حجز العملاء',
 	'MessageSent'=>'تم ارسال الرسالة',
 	'error'=>'هناك خطأ ما',
 	'unit_ar'=>'الوحدة AR',
@@ -79,6 +80,10 @@ return [
 	'value' => 'القيمة',
 	'attachment'=>'المرفق',
     'project'=> 'المشروع',
+    'governorate'=>'المحافظة',
+    'city'=>'المدينة',
+    'height'=>'الطول',
+    'weight'=>'الوزن',
 
 
 
