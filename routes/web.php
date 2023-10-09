@@ -21,6 +21,7 @@ use App\Http\Controllers\ProjectGalleryController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BranchGalleryController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\MeettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -120,6 +121,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('branches', BranchController::class);
     Route::resource('branchGallery', BranchGalleryController::class);
     Route::resource('appointments',AppointmentController::class);
+    Route::resource('meettings',MeettingController::class);
 });
 
 Route::middleware([

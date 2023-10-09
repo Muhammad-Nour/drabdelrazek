@@ -268,6 +268,34 @@
           </li>
           @endcan('sliders')
 
+          @can('meettings')
+          <li class="nav-item {{ request()->routeIs('meettings.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('meettings.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.meettings') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('meettings.index') }}" class="nav-link {{ request()->routeIs('meettings.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_meetting')
+              <li class="nav-item">
+                <a href="{{ route('meettings.create') }}" class="nav-link {{ request()->routeIs('meettings.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_meetting')
+            </ul>
+          </li>
+          @endcan('meettings')
+
           @can('categories')
           <li class="nav-item {{ request()->routeIs('categories.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
