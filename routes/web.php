@@ -22,6 +22,10 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BranchGalleryController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\MeettingController;
+use App\Http\Controllers\faqController;
+use App\Http\Controllers\Why_usController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceInstructionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -122,6 +126,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('branchGallery', BranchGalleryController::class);
     Route::resource('appointments',AppointmentController::class);
     Route::resource('meettings',MeettingController::class);
+    Route::resource('faqs',faqController::class);
+    Route::resource('whys',Why_usController::class);
+    Route::resource('services',ServiceController::class);
+    Route::resource('servicesIsnta',ServiceInstructionController::class);
 });
 
 Route::middleware([

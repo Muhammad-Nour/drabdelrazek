@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Service_instruction extends Model
 {
     use HasFactory;
 
@@ -21,13 +21,8 @@ class Service extends Model
         return $this->belongsTo(Admin::class, 'updated_by');
     }
 
-    public function category()
+    public function service()
     {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function serviceinsta()
-    {
-        return $this->hasMany(ServiceInstructions::class);
+        return $this->belongsTo(Service::class);
     }
 }

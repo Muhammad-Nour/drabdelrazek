@@ -296,6 +296,62 @@
           </li>
           @endcan('meettings')
 
+          @can('faqs')
+          <li class="nav-item {{ request()->routeIs('faqs.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('faqs.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.faqs') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('faqs.index') }}" class="nav-link {{ request()->routeIs('faqs.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_faq')
+              <li class="nav-item">
+                <a href="{{ route('faqs.create') }}" class="nav-link {{ request()->routeIs('faqs.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_faq')
+            </ul>
+          </li>
+          @endcan('faqs')
+
+          @can('services')
+          <li class="nav-item {{ request()->routeIs('services.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.services') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('services.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_service')
+              <li class="nav-item">
+                <a href="{{ route('services.create') }}" class="nav-link {{ request()->routeIs('services.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_service')
+            </ul>
+          </li>
+          @endcan('services')
+
           @can('categories')
           <li class="nav-item {{ request()->routeIs('categories.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
@@ -324,7 +380,35 @@
           </li>
           @endcan('categories')
 
-          @can('products')
+          @can('why_us')
+          <li class="nav-item {{ request()->routeIs('whys.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('whys.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{ __('site.why_us') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('whys.index') }}" class="nav-link {{ request()->routeIs('whys.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+              @can('add_why_us')
+              <li class="nav-item">
+                <a href="{{ route('whys.create') }}" class="nav-link {{ request()->routeIs('whys.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+              @endcan('add_why_us')
+            </ul>
+          </li>
+          @endcan('why_us')
+
+<!--           @can('products')
           <li class="nav-item {{ request()->routeIs('products.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -370,7 +454,7 @@
               </li>
             </ul>
           </li>
-          @endcan('clients')
+          @endcan('clients') -->
 
           @can('users')
           <li class="nav-item {{ request()->routeIs('admins.*') ? 'menu-open' : '' }}">

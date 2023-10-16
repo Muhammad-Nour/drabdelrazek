@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', __('site.categories'))
+@section('title', __('site.why_us'))
 
 @section('css')
 @stop
@@ -9,35 +9,34 @@
 @stop
 
 
-@section('title-page', __('site.categories'))
+@section('title-page', __('site.why_us'))
 
 @section('content')
-<div class="main-stage categories">
+<div class="main-stage why_us">
 	<div class="row">
 		<div class="col-md-11 m-auto">
 			@include('partial.alerts')
 
-			@if($categories->count() > 0)
+			@if($why_us->count() > 0)
 			<div class="row">
-				@foreach($categories as $category)
+				@foreach($why_us as $why)
 				<div class="col-md-12 single-row">
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-6 col-md-2">
+								<div class="col-6 col-md-1">
 									<p class="key">{{__('site.code')}}</p>
-									<p class="value">{{$category->id}}</p>
-								</div>
-								<div class="col-6 col-md-3">
-									<p class="key">{{__('site.name_ar')}}</p>
-									<p class="value">{{$category->name_ar}}</p>
-								</div>
-								<div class="col-6 col-md-3 display-none">
-									<p class="key">{{__('site.name_en')}}</p>
-									<p class="value">{{$category->name_en}}</p>
+									<p class="value">{{$why->id}}</p>
 								</div>
 
-
+								<div class="col-6 col-md-5">
+									<p class="key">{{__('site.description_ar')}}</p>
+									<p class="value">{!!$why->description_ar!!}</p>
+								</div>
+								<div class="col-6 col-md-2 display-none">
+									<p class="key">{{__('site.description_en')}}</p>
+									<p class="value">{{$why->description_en}}</p>
+								</div>
 								<div class="col-6 col-md-2">
                                     <p class="key">{{__('site.actions')}}</p>
                                     <div class="actions-dropdown">
@@ -46,11 +45,11 @@
                                         </button>
 
                                         <div class="dropdown-menu">
-                                            @can('edit_category')
-                                            <a href="{{route('categories.edit',$category->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
+                                            @can('edit_why_us')
+                                            <a href="{{route('whys.edit',$why->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
                                             @endcan
-                                            @can('delete_category')
-                                            <form action="{{route('categories.destroy', $category->id)}}" method="POST" class="dropdown-item">
+                                            @can('delete_why_us')
+                                            <form action="{{route('whys.destroy', $why->id)}}" method="POST" class="dropdown-item">
                                                 @csrf
                                                 {{ method_field('delete') }}
                                                 <a href="" class="delete text-danger"> <i class="fa fa-trash-alt"> </i>   {{__('site.delete')}} </a>
@@ -68,7 +67,7 @@
 		</div>
 		@endif
 		@isset($paginate)
-		{{ $categories->links() }}
+		{{ $why_us->links() }}
 		@endisset
 	</div>
 </div>

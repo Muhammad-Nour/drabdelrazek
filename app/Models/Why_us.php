@@ -17,4 +17,9 @@ class Why_us extends Model
     {
         return $this->belongsTo('App\Models\ِAdmin');
     }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Admin::class, 'updated_by');
+    }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', __('site.categories'))
+@section('title', __('site.faqs'))
 
 @section('css')
 @stop
@@ -9,35 +9,42 @@
 @stop
 
 
-@section('title-page', __('site.categories'))
+@section('title-page', __('site.faqs'))
 
 @section('content')
-<div class="main-stage categories">
+<div class="main-stage faqs">
 	<div class="row">
 		<div class="col-md-11 m-auto">
 			@include('partial.alerts')
 
-			@if($categories->count() > 0)
+			@if($faqs->count() > 0)
 			<div class="row">
-				@foreach($categories as $category)
+				@foreach($faqs as $faq)
 				<div class="col-md-12 single-row">
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
-								<div class="col-6 col-md-2">
+								<div class="col-6 col-md-1">
 									<p class="key">{{__('site.code')}}</p>
-									<p class="value">{{$category->id}}</p>
+									<p class="value">{{$faq->id}}</p>
 								</div>
-								<div class="col-6 col-md-3">
-									<p class="key">{{__('site.name_ar')}}</p>
-									<p class="value">{{$category->name_ar}}</p>
+								<div class="col-6 col-md-2">
+									<p class="key">{{__('site.title_ar')}}</p>
+									<p class="value">{{$faq->title_ar}}</p>
 								</div>
-								<div class="col-6 col-md-3 display-none">
-									<p class="key">{{__('site.name_en')}}</p>
-									<p class="value">{{$category->name_en}}</p>
+								<div class="col-6 col-md-2 display-none">
+									<p class="key">{{__('site.title_en')}}</p>
+									<p class="value">{{$faq->title_en}}</p>
 								</div>
 
-
+								<div class="col-6 col-md-5">
+									<p class="key">{{__('site.description_ar')}}</p>
+									<p class="value">{!!$faq->description_ar!!}</p>
+								</div>
+								<div class="col-6 col-md-2 display-none">
+									<p class="key">{{__('site.description_en')}}</p>
+									<p class="value">{{$faq->description_en}}</p>
+								</div>
 								<div class="col-6 col-md-2">
                                     <p class="key">{{__('site.actions')}}</p>
                                     <div class="actions-dropdown">
@@ -46,11 +53,11 @@
                                         </button>
 
                                         <div class="dropdown-menu">
-                                            @can('edit_category')
-                                            <a href="{{route('categories.edit',$category->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
+                                            @can('edit_faq')
+                                            <a href="{{route('faqs.edit',$faq->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
                                             @endcan
-                                            @can('delete_category')
-                                            <form action="{{route('categories.destroy', $category->id)}}" method="POST" class="dropdown-item">
+                                            @can('delete_faq')
+                                            <form action="{{route('faqs.destroy', $faq->id)}}" method="POST" class="dropdown-item">
                                                 @csrf
                                                 {{ method_field('delete') }}
                                                 <a href="" class="delete text-danger"> <i class="fa fa-trash-alt"> </i>   {{__('site.delete')}} </a>
@@ -68,7 +75,7 @@
 		</div>
 		@endif
 		@isset($paginate)
-		{{ $categories->links() }}
+		{{ $faqs->links() }}
 		@endisset
 	</div>
 </div>

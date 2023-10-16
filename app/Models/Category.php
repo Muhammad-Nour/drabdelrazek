@@ -11,9 +11,9 @@ class Category extends Model
 
     protected $guarded = [];
 
-    public function products()
+    public function services()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Service::class);
     }
 
     public function admin()

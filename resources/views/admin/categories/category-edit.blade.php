@@ -32,9 +32,9 @@
 							<label >{{__('site.name_ar')}}</label>
 							<input type="text" class="form-control" name="name_ar" required value="{{ old('name_ar',$category->name_ar) }}">
 						</div>
-						<div class="form-group">
+						<div class="form-group display-none">
 							<label >{{__('site.name_en')}}</label>
-							<input type="text" class="form-control" name="name_en" required value="{{ old('name_en',$category->name_en) }}">
+							<input type="text" class="form-control" name="name_en" value="{{ old('name_en',$category->name_en) }}">
 						</div>
 					</div>
 					<!-- /.card-body -->

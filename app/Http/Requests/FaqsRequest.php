@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class CategoryRequest extends FormRequest
+class FaqsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
+        public function authorize()
     {
         return true;
     }
@@ -25,20 +24,18 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-
-            'name_ar'   =>
-            ['required','string','max:255',Rule::unique('categories')->ignore($this->category)],
-            'name_en'   =>
-            ['nullable','string','max:255',Rule::unique('categories')->ignore($this->category)],
-        ];
+            'title_ar'          => ['required','string','max:255'],
+            'title_en'          => ['nullable','string','max:255'],
+            'description_ar'    => ['required','string','max:255'],
+            'description_en'    => ['nullable','string','max:255'],
+        ];  
     }
 
     public function messages(){
         return [
-            'required' => 'إسم القسم مطلوب',
-            'string' => 'يجب أن يكون الإسم مكون من حروف و أرقام فقط  ',
-            'max' => 'يجب ألا يزيد الإسم عن 255 حرف و رقم',
-            'unique' => 'البراند مكرر',
+            'required'  => 'هذا الحقل مطلوب',
+            'string'    => 'الحقل المطلوب يجب أن يكون نص',
+            'max'       =>'الإسم كبير جداً',
         ];
     }
 
@@ -49,8 +46,10 @@ class CategoryRequest extends FormRequest
         if(request()->isMethod('post')){
             return array_merge($data,['admin_id' => auth()->id()]);
         }
+
         elseif(request()->isMethod('put')){
             return array_merge($data,['updated_by' => auth()->id()]);
         }
     }
+
 }

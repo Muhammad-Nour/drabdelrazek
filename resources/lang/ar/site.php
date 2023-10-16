@@ -2,6 +2,7 @@
 
 return [
  // Mohamed
+	'dr_name'=>'د / عبدالرازق محمد',
 	'customs'=>'أساسيات',
 	'dasboard' => 'الرئيسية',
 	'logout' => 'الخروج',
@@ -86,6 +87,11 @@ return [
     'weight'=>'الوزن',
     'meettings' =>'اللقاءات',
     'video' =>'لينك الفيديو',
+    'faqs'=>'أسئلة شائعة',
+    'why_us'=>'لماذا نحن',
+    'services'=>'الخدمات',
+    'add_insta'=>'إضافة إرشادات',
+    'servicesInstruction'=>'إرشادات الخدمة',
 
 
 
