@@ -1,48 +1,74 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>د . عبدالرازق محمد</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <x-jet-validation-errors class="mb-4" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+    <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('design/admin/plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{{ asset('design/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('design/admin/dist/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('design/admin/dist/css/add-style.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('design/admin/dist/css/bootstrap.min.css') }}">
+
+    </head>
+    <body>
+
+    <section class="ftco-section img js-fullheight" style="background-image: url('{{asset('images/bg/sr-bg-5-1.jpg')}}'); padding-top: 50px;">
+        <div class="container">
+            <div style="margin-bottom: 50px;">
+            <center><img src="{{ asset('images/bg/logo.png') }}" alt="" style="opacity:0.75 ;height: 180px;"></center>
+        </div>
+            <div class="row justify-content-center">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                <form action="{{ route('login') }}" class="signin-form" method="post">
+                @csrf
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email"
+                        style="background-color:#5db4aa;border: 2px solid;" required>
+                    </div>
+                <div class="form-group">
+                  <input id="password-field" type="password" class="form-control" placeholder="Password"
+                  style="background-color:#5db4aa;border: 2px solid;" required name="password" required>
+                  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                    <button style="background-color:#eb9a87" type="submit" class="form-control btn btn-info submit px-3">Sign In</button>
+                </div>
+                <div class="form-group d-md-flex">
+                    @include('partial.alerts')
+                </div>
+              </form>
+              </div>
+                </div>
             </div>
-        @endif
+        </div>
+    </section>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+<!-- jQuery -->
+<script src="{{ asset('design/admin/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('design/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('design/admin/dist/js/adminlte.min.js') }}"></script>
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+<script src="{{ asset('design/admin/dist/js/bootstrap.min.js') }}"></script>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
+<script src="{{ asset('design/admin/dist/js/jquery.min.js') }}"></script>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+<script src="{{ asset('design/admin/dist/js/main.js') }}"></script>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+<script src="{{ asset('design/admin/dist/js/popper.js') }}"></script>
+</body>
+</html>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
