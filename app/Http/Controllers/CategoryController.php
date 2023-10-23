@@ -98,9 +98,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
 
-        $product = $category->products;
+        $service = $category->services;
 
-        if($product->count() > 0){
+        if($service->count() > 0){
             return back()->withErrors('لا يمن حذف هذا القسم يوجد أصناف مرتبطة به ');
         }
 
