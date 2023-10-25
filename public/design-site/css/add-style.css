@@ -5,6 +5,91 @@
     transition: all ease .4s
 }
 
+.breadcumb-wrapper
+{
+    padding-bottom: 0;
+    padding-top: 90px;
+    margin-bottom: 0;
+    height: 230px;
+    text-align: center;
+}
+
+.pt-70
+{
+    padding-top: 70px;
+}
+
+.text-title p
+{
+    color: var(--title-color) !important;
+}
+
+.service-detils .text-title
+{
+    margin-top: 20px;
+}
+
+.services .des
+{
+    height: 110px;
+    overflow: hidden;
+}
+
+.services h3
+{
+	font-size: 21px;
+     height: 30px;
+    overflow: hidden;
+}
+
+.header1-logo img
+{
+    width: 200px;
+}
+
+.footer1-logo img
+{
+    width: 130px;
+    padding: 0;
+}
+
+.address-line
+{
+    margin-bottom: 20px;
+}
+
+.section-title
+{
+    margin-bottom: 40px;
+}
+
+.h3, h3 {
+    font-size: 24px;
+}
+
+.h2, h2 {
+    font-size: 30px;
+}
+
+.vs-menu-wrapper .mobile-logo {
+    padding-bottom: 0;
+    padding-top: 15px;
+    display: inline-block;
+    width: 212px;
+}
+
+.vs-mobile-menu
+{
+    margin-top: 25px;
+}
+
+.footer-wrapper .vs-widget-about
+{
+    color: #fff;
+}
+
+
+/**/
 .form-error {
     color: #ff0707;
 }
@@ -27,4 +112,177 @@
     border: 1px solid #ff0707;
     padding-left: 30px;
     transition: all ease .4s
+}
+/**/
+
+.alert button
+{
+    border: none;
+    background: none;
+}
+
+/**whatsapp*/
+
+.btn-whatsapp-pulse {
+	background: #25d366;
+	color: white;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 0;
+	height: 0;
+	padding: 35px;
+	text-decoration: none;
+	border-radius: 50%;
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+	}
+	80% {
+		box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+	}
+}
+
+.btn-whatsapp-pulse-border {
+	bottom: 120px;
+	right: 20px;
+	animation-play-state: paused;
+    z-index: 9999;
+}
+
+.btn-whatsapp-pulse-border::before {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	padding: 25px;
+	border: 5px solid #25d366;
+	opacity: 0.75;
+	animation-name: pulse-border;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes pulse-border {
+	0% {
+		padding: 25px;
+		opacity: 0.75;
+	}
+	75% {
+		padding: 50px;
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+a.btn-whatsapp-pulse:focus, a.btn-whatsapp-pulse:hover
+{
+    color: #fff;
+}
+
+/***/
+
+.icon-btn.style3 i
+{
+    background-color: rgb(51 158 145 / 28%);
+}
+
+.inc-slider .des
+{
+    color: #000;
+    font-size: 18px !important;
+
+}
+
+
+
+.footer-layout1 .widget-area
+{
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+.blog-card .blog-title
+{
+    height: 56px;
+    overflow: hidden;
+}
+
+.inc-meetings .des
+{
+    height: 57px;
+    overflow: hidden;
+}
+
+.inc-meetings .blog-img img
+{
+    height: 274px;
+}
+
+.inc-banner .stamp
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.inc-banner .stamp img
+{
+    width: 80px;
+}
+
+.inc-banner .stamp .text
+{
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+@media (max-width: 687px){
+    .inc-banner .stamp {
+        top: 65px;
+        left: 10px;
+    }
+}
+
+
+.service-box .sr-img img
+{
+    height: 240px;
+}
+
+
+.service-title
+{
+    background-color: #2a9c8e;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px auto;
+    text-align: center;
+}
+.add_instruction
+{
+    margin-bottom: 5px;
+    background-color: #edb651;
+    border-color: #edb651 !important;
+    color: #fff;
+    padding: 0px;
+}
+
+.blog-card .blog-img img
+{
+	height: 280px;
 }

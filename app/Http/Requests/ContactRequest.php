@@ -51,6 +51,7 @@ class ContactRequest extends FormRequest
         if($this->route()->parameter('custom')){
             return array_merge($data,['updated_by' => auth()->id()]);
         }
+
     }
 
 }

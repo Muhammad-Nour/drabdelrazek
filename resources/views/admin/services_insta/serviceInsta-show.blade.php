@@ -12,18 +12,25 @@
 @section('title-page', __('site.servicesInstruction'))
 
 @section('content')
+<a class="btn link-btn" href="{{route('servicesIsnta.create',$service->id)}}"> <i class="fa fa-plus"></i> {{__('site.add_insta')}} </a>
 
 <!-- Main content -->
 <div class="main-stage servicesInstruction">
 	<div class="col-md-11 m-auto">
 		@include('partial.alerts')
 		@if($serviceInsta->count() > 0)
-		<h3 class="service-title">{{$service->title_ar}}</h3>
-		<a class="btn btn-style" href="{{route('servicesIsnta.create')}}">
-			<i class="fa fa-plus"></i>&nbsp;&nbsp;{{__('site.add_insta')}}
-		</a>
 		<div class="row">
-
+            <div class="col-md-12 single-row">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 col-md-2">
+								<p class="key">{{$service->title_ar}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			@foreach($serviceInsta as $service)
 			<div class="col-md-12 single-row">
 				<div class="card">
@@ -49,7 +56,7 @@
 								<p class="key">{{__('site.description_en')}}</p>
 								<p class="value">{{$service->description_en}}</p>
 							</div>
-							
+
 							<div class="col-6 col-md-2">
 								<p class="key">{{__('site.actions')}}</p>
 								<div class="actions-dropdown">

@@ -1,0 +1,293 @@
+@font-face {
+    font-family: 'DroidKufi';
+    src: url('../fonts/DroidKufi-Regular.ttf') format('truetype'),
+    url('../fonts/DroidKufi-Regular.woff2') format('woff2'),
+    url('../fonts/DroidKufi-Regular.woff') format('woff');
+
+}
+
+body
+{
+	font-family: "DroidKufi" !important;
+}
+
+h1, h2, h3, h4, h5, h6, [class*='heading-'], a
+{
+    font-family: "DroidKufi" !important;
+}
+
+.cl
+{
+    float: right;
+}
+
+.service-detils
+{
+    direction: rtl;
+}
+
+.vs-surface
+{
+    direction: ltr;
+}
+
+
+.vs-service-wrapper
+{
+    direction: rtl;
+}
+
+
+.vs-accordion .accordion-button
+{
+    padding-left: 0;
+    padding-right: 60px;
+    text-align: right;
+}
+
+.vs-accordion .accordion-button::before
+{
+    left: auto;
+    right: 0;
+}
+
+.vs-accordion .accordion-body
+{
+    padding: 10px 60px 0 0;
+}
+
+.header-main
+{
+    direction: rtl;
+}
+
+.main-menu ul li.menu-item-has-children>a:after
+{
+    margin-left: 0;
+    margin-right: 2px;
+}
+
+
+.main-menu ul.sub-menu li a
+{
+    padding-left: 0;
+    padding-right: 21px;
+    text-align: right;
+}
+
+.main-menu ul.sub-menu li a::before
+{
+    left: auto;
+    right: 0;
+}
+
+.main-menu ul.sub-menu:before
+{
+    left: auto;
+    right: 34.5px;
+}
+
+.main-menu ul.sub-menu {
+    left: auto;
+    right: -27px;
+}
+
+
+.footer-wrapper
+{
+    direction: rtl;
+}
+
+.footer-widget .widget_title:before
+{
+    left: auto;
+    right: 0;
+}
+
+.address-line
+{
+    padding-right: 30px;
+    padding-left: 0;
+}
+
+.address-line i
+{
+    left: auto;
+    right: 0;
+}
+
+.mr-20
+{
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.copyright
+{
+    direction: ltr;
+}
+
+.sidemenu-wrapper .footer-logo
+{
+    width: 230px;
+}
+
+.sidemenu-content
+{
+    direction: rtl;
+}
+
+.sidemenu-wrapper .closeButton
+{
+    right: auto;
+    left: 20px;
+}
+
+.footer-social3 a
+{
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.footer-social a
+{
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+.footer-widget.widget_meta a::before, .footer-widget.widget_pages a::before, .footer-widget.widget_archive a::before, .footer-widget.widget_categories a::before, .footer-widget.widget_nav_menu a::before {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.vs-about-wrapper
+{
+    direction: rtl;
+}
+
+.appointment-wrapper
+{
+    direction: rtl;
+}
+
+.vs-list li, .about-list li
+{
+    padding-left: 0;
+    padding-right: 40px;
+}
+
+.vs-list li::before, .about-list li::before {
+    left: auto;
+    right: 0;
+}
+
+.list-inline, .list-unstyled
+{
+    padding-right: 0;
+}
+
+.vs-btn.style3 i, .vs-btn.style2 i
+{
+    right: calc(var(--icon-size)/-2);
+    left: auto;
+}
+
+.vs-btn.style3:before, .vs-btn.style2:before
+{
+    right: calc(var(--icon-shape)/-2);
+    left: auto;
+}
+
+.blog-card .blog-content
+{
+    text-align: right;
+}
+
+.testimonial-box .content p
+{
+    direction: rtl;
+    text-align: right;
+}
+
+.blogs
+{
+    direction: rtl;
+}
+
+.contact
+{
+    direction: rtl;
+}
+
+.me-2 {
+    margin-right: 0!important;
+    margin-left: .5rem!important;
+}
+
+.inc-slider h1, .inc-slider .des
+{
+    direction: rtl;
+}
+
+
+.vs-carousel
+{
+    direction: ltr;
+}
+
+.vs-menu-wrapper
+{
+    direction: rtl;
+    left: auto;
+    right: 0;
+}
+
+.vs-menu-wrapper .vs-menu-toggle
+{
+    right: auto;
+    left: 10px;
+}
+
+.vs-mobile-menu ul li a
+{
+    text-align: right;
+}
+
+.vs-mobile-menu ul li a:before
+{
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.vs-mobile-menu ul .vs-item-has-children>a:after
+{
+    right: auto;
+    left: 0;
+}
+
+.text-end {
+    text-align: left!important;
+}
+
+@media (max-width: 576px)
+{
+    .form-select, .form-control {
+        padding-right: 60px;
+    }
+}
+
+.testimonial-wrapper
+{
+    direction: rtl;
+}
+
+.testimonail-desc-slide .testi-text
+{
+    text-align: right;
+}
+
+
+.inc-banner
+{
+    direction: rtl;
+}

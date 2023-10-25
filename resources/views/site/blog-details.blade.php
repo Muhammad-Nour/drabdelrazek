@@ -15,11 +15,7 @@ $facebook = Setting::where('code', 'facebook')->first();
 $instgram = Setting::where('code', 'instgram')->first();
 $WhatsApp = Setting::where('code', 'WhatsApp')->first();
 
-$secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
-$secret2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret2')->first();
-$secret3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret3')->first();
 $secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
-$secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
 
 $phone2 = Setting::where('code', 'phone2')->first();
 
@@ -30,7 +26,9 @@ $bio = Custom::where('code', 'bio')->first();
 ?>
 @extends('site.layouts.app')
 
-@section('title', __('front.blog'))
+@section('title', $blog->title_ar)
+
+@section('banner_title',$blog->title_ar )
 
 @section('css')
 @stop
@@ -40,27 +38,15 @@ $bio = Custom::where('code', 'bio')->first();
 
 @section('content')
 
-<div class="breadcumb-wrapper">
-    <div class="parallax" data-parallax-image="{{asset('design-site/img/breadcurmb/breadcurmb-1-1.jpg')}}"></div>
-    <div class="container z-index-common">
-        <div class="breadcumb-content">
-            <h1 class="breadcumb-title">{{__('front.blog')}}</h1>
-            <div class="breadcumb-menu-wrap"><i class="far fa-home-lg"></i>
-                <ul class="breadcumb-menu">
-                    <li><a href="{{route('home')}}">{{__('front.home')}}</a></li>
-                    <li class="active">{{__('front.blog')}}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    </div>
-    <section class="vs-blog-wrapper space-top space-md-bottom">
+@include('site.inc-banner')
+
+    <section class="vs-blog-wrapper space-top space-md-bottom pt-70 blogs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="vs-blog blog-single">
                         <div class="blog-img">
-                            <img src="{{asset('design-site/img/blog/blog-s-1-1.jpg')}}" alt="Blog Image">
+                            <img src="{{asset('images/'.$blog->photo)}}" alt="Blog Image">
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title h3"> {{$blog->title_ar}}</h2>

@@ -4,7 +4,8 @@
         <div class="row text-center justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-6 wow fadeIn" data-wow-delay="0.3s">
                 <div class="section-title">
-                    <h2 class="h1 text-white">قصص نجاح</h2>
+                    <h2 class="h1 text-white">Latest Projects</h2>
+                    <p class="text-white">Proactively revolutionize granular customer service after pandemic internal or "organic" sources proactive human capital rather.</p>
                 </div>
             </div>
         </div>
@@ -17,6 +18,8 @@
                         class="w-100">
                     </div>
                     <div class="project-content">
+                        <span class="project-cat fs-xs">{{$project->name}}</span>
+                        <h4 class="project-name">{{$project->description}}</h4>
                         <a href="{{asset('images/'.$project->photo)}}"
                         class="icon-btn style4 popup-image"><i class="fal fa-eye"></i></a>
                     </div>

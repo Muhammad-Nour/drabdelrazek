@@ -22,15 +22,15 @@ body
 {
     position: absolute;
     top: 75px;
-    background-color: #edb651;
-    border-color: #edb651;
+    background-color: #339e91;
+    border-color: #339e91;
     color: #fff;
 }
 
 .link-btn:hover, .link-btn:focus , .link-btn.active , .link-btn:active
 {
-    background-color: #edb651;
-    border-color: #edb651;
+    background-color: #339e91;
+    border-color: #339e91;
     color: #fff;
 }
 
@@ -39,15 +39,10 @@ body
     float: right;
 }
 
-table thead
-{
-    background-color: #915d4b;
-    color: #fff;
-}
 
 [class*=sidebar-dark-]
 {
-    background-color: #915d4b;
+    background-color: #264653;
 }
 
 [class*=sidebar-dark-] .sidebar a
@@ -58,12 +53,12 @@ table thead
 
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active
 {
-    background-color: #edb651;
+    background-color: #339e91;
 }
 
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover
 {
-    background-color: #edb651;
+    background-color: #339e91;
     color: #fff;
 }
 
@@ -144,8 +139,8 @@ select
 
 .btn-style
 {
-    background-color: #edb651;
-    border-color: #edb651 !important;
+    background-color: #339e91;
+    border-color: #339e91 !important;
     color: #fff;
 }
 
@@ -164,5 +159,5 @@ select
 
 .card-header
 {
-    background-color: #edb651;
+    background-color: #339e91;
 }

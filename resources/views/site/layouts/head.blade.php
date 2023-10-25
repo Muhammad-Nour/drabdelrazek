@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <title>
-    @yield('title', config('app.name', 'Almabda'))
+    @yield('title', config('app.name', 'Drabdelrazek'))
 </title>
 
 
@@ -19,14 +19,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com/">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
     rel="stylesheet">
-<link rel="shortcut icon" href="{{ asset('design-site/img/favicon.ico')}}" type="image/x-icon">
-<link rel="icon"       href="{{ asset('design-site/css/img/favicon.ico')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('images/logo.png')}}" type="image/x-icon">
+<link rel="icon"       href="{{ asset('images/logo.png')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{ asset('design-site/css/app.min.css')}}">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 <link rel="stylesheet" href="{{ asset('design-site/css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{ asset('design-site/css/animate.min.css')}}">
+
 <link rel="stylesheet" href="{{ asset('design-site/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('design-site/css/add-style.css') }}">
 
-@if(\LaravelLocalization::getCurrentLocaleDirection() == "rtl")
 <link rel="stylesheet" href="{{ asset('design-site/css/style-rtl.css') }}">
-@endif

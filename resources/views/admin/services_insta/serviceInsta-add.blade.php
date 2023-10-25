@@ -11,6 +11,8 @@
 @section('title-page',__('site.servicesInstruction'))
 
 @section('content')
+<a class="btn link-btn" href="{{route('servicesIsnta.show',$service->id)}}"> <i class="fa fa-list"></i> {{__('site.servicesInstruction')}} </a>
+
 
 <!-- Main content -->
 <div class="main-stage servicesInstruction">
@@ -23,7 +25,7 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="{{route('servicesIsnta.store')}}" method="post" enctype="multipart/form-data" >
+				<form action="{{route('servicesIsnta.store', $service->id)}}" method="post">
 					@csrf
 					<div class="card-body">
 						<div class="row">
@@ -52,7 +54,7 @@
 				<!-- /.card-body -->
 				<div class="card-footer">
 					<button type="submit" class="btn btn-style">
-						<i class="fa fa-plus"></i> 
+						<i class="fa fa-plus"></i>
 						{{__('site.add')}}
 					</button>
 				</div>

@@ -15,11 +15,7 @@ $facebook = Setting::where('code', 'facebook')->first();
 $instgram = Setting::where('code', 'instgram')->first();
 $WhatsApp = Setting::where('code', 'WhatsApp')->first();
 
-$secret1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret1')->first();
-$secret2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret2')->first();
-$secret3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secret3')->first();
 $secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
-$secrets_photo = Custom::select('id','photo')->where('code', 'secrets_photo')->first();
 
 $phone2 = Setting::where('code', 'phone2')->first();
 
@@ -32,6 +28,8 @@ $bio = Custom::where('code', 'bio')->first();
 
 @section('title', __('front.appointment'))
 
+@section('banner_title', __('front.appointment') )
+
 @section('css')
 @stop
 
@@ -40,8 +38,9 @@ $bio = Custom::where('code', 'bio')->first();
 
 @section('content')
 
+@include('site.inc-banner')
 
-@include('site.home-page.inc-category6')
+@include('site.home-page.inc-whyus')
 
 
 @stop

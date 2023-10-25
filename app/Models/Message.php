@@ -11,6 +11,11 @@ class Message extends Model
 
     protected $guarded = [];
 
+    public function admin()
+    {
+        return $this->belongsTo('App\Models\ِAdmin');
+    }
+
     public function updatedBy()
     {
         return $this->belongsTo(Admin::class, 'updated_by');

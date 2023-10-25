@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
-use App\Http\Requests\FaqsRequest;
+use App\Http\Requests\FaqRequest;
 use Illuminate\Http\Request;
 
 class faqController extends Controller
@@ -44,7 +44,7 @@ class faqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FaqsRequest $request)
+    public function store(FaqRequest $request)
     {
         Faq::create($request->validated());
         return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
@@ -80,7 +80,7 @@ class faqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(FaqsRequest $request, Faq $faq)
+    public function update(FaqRequest $request, Faq $faq)
     {
         $faq->update($request->validated());
         return redirect()->back()->withInput()->with('msg',__('site.updatedMessage'));

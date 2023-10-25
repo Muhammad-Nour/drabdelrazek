@@ -24,9 +24,9 @@ class ServiceInstructionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Service $service)
     {
-        return view('admin.services_insta.serviceInsta-add');
+        return view('admin.services_insta.serviceInsta-add', compact('service'));
     }
 
     /**
@@ -35,10 +35,12 @@ class ServiceInstructionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceInstructionRequest $request)
-    {        
-        // Service_instruction::create($request->validated());
-        // return redirect()->back()->withInput()->with('msg',__('addedMessage'));
+    public function store(ServiceInstructionRequest $request, Service $service)
+    {
+        $columns = $request->validated();
+        $columns['service_id'] = $service->id;
+        Service_instruction::create($columns);
+        return redirect()->back()->withInput()->with('msg',__('addedMessage'));
     }
 
     /**
@@ -62,9 +64,10 @@ class ServiceInstructionController extends Controller
      * @param  \App\Models\ServiceInstructions  $serviceInstructions
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service_instruction $service)
+    public function edit($id)
     {
-        return view('admin.services_insta.serviceInsta-edit',compact('service'));
+        $serviceInsta = Service_instruction::findOrFail($id);
+        return view('admin.services_insta.serviceInsta-edit',compact('serviceInsta'));
     }
 
     /**
@@ -74,8 +77,9 @@ class ServiceInstructionController extends Controller
      * @param  \App\Models\ServiceInstructions  $serviceInstructions
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceInstructionRequest $request, Service_instruction $service)
+    public function update(ServiceInstructionRequest $request, $id)
     {
+        $service = Service_instruction::findOrFail($id);
         $service->update($request->validated());
 
         return redirect()->back()->withInput()->with('msg', __('site.updatedMessage'));
@@ -87,8 +91,9 @@ class ServiceInstructionController extends Controller
      * @param  \App\Models\ServiceInstructions  $serviceInstructions
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service_instruction $service)
+    public function destroy($id)
     {
+        $service = Service_instruction::findOrFail($id);
         $service->delete();
         return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));
     }

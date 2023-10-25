@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', __('site.serviceInstructions'))
+@section('title', __('site.servicesInstruction'))
 
 @section('css')
 @stop
@@ -8,9 +8,10 @@
 @section('js')
 @stop
 
-@section('title-page',__('site.serviceInstructions'))
+@section('title-page',__('site.servicesInstruction'))
 
 @section('content')
+<a class="btn link-btn" href="{{route('servicesIsnta.show',$serviceInsta->service_id)}}"> <i class="fa fa-list"></i> {{__('site.servicesInstruction')}} </a>
 
 <!-- Main content -->
 <div class="main-stage serviceInstructions">
@@ -23,14 +24,14 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="{{route('servicesIsnta.update',$service->id)}}" method="post">
+				<form action="{{route('servicesIsnta.update',$serviceInsta->id)}}" method="post">
 					@csrf
 					{{method_field('put')}}
 					<div class="card-body">
 						<div class="row">
 							<div class="form-group col-md-6">
 								<label>{{__('site.title_ar')}}</label>
-								<input type="text" class="form-control" name="title_ar"value="{{$serviceInsta->title_ar}}" required>
+								<input type="text" class="form-control" name="title_ar" value="{{$serviceInsta->title_ar}}" required>
 							</div>
 							<div class="form-group col-md-6 display-none">
 								<label>{{__('site.title_en')}}</label>
@@ -38,13 +39,13 @@
 							</div>
 							<div class="form-group col-md-12">
 								<label>{{__('site.description_ar')}}</label>
-								<textarea class="ckeditor" name="description_ar" value="{!!$serviceInsta->description_ar!!}" required>
+								<textarea class="ckeditor" name="description_ar"  required>
 									{{$serviceInsta->description_ar}}</textarea>
 								</div>
 								<div class="form-group col-md-6 display-none">
 									<label>{{__('site.description_en')}}</label>
-									<textarea class="ckeditor"name="description_en"value="{{$serviceInsta->description_en}}">
-										{!!$serviceInsta->description_en!!}</textarea>
+									<textarea class="ckeditor"name="description_en">
+										{{$serviceInsta->description_en}}</textarea>
 									</div>
 								</div>
 								<!-- /.card-body -->

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\custom;
+use App\Models\Custom;
 use App\Traits\UploadPhotoCustom;
 use App\Http\Requests\CustomRequest;
 use Illuminate\Support\Facades\Auth;

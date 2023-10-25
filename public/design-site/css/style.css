@@ -1,9 +1,9 @@
 :root {
-    --theme-color: #07ccec;
+    --theme-color: #339e91;
     --theme-color2: #2cb624;
     --theme-color3: #0033a0;
-    --theme-color4: #1296db;
-    --title-color: #27477d;
+    --theme-color4: #339e91;
+    --title-color: #264653;
     --title-color2: #000000;
     --body-color: #888c92;
     --body-color2: #555555;
@@ -3718,7 +3718,8 @@ textarea.form-control.is-invalid {
     left: 0;
     background-color: var(--white-color);
     transition: all ease .8s;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .07)
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .07);
+    z-index: 9999;
 }
 
 .will-sticky .sticky-active.active {
@@ -3798,7 +3799,7 @@ textarea.form-control.is-invalid {
     visibility: visible;
     opacity: 1;
     margin-top: 0;
-    z-index: 9
+    z-index: 9999
 }
 
 .main-menu ul.sub-menu,
@@ -4804,7 +4805,6 @@ textarea.form-control.is-invalid {
 }
 
 .footer1-logo img {
-    background-color: var(--white-color);
     padding: 30px
 }
 
@@ -4815,7 +4815,6 @@ textarea.form-control.is-invalid {
     top: 0;
     bottom: 0;
     right: -30px;
-    background-color: #0a1830;
     -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0% 100%);
     z-index: -1
@@ -6628,11 +6627,9 @@ blockquote cite:before {
 
 .vs-list li:before,
 .about-list li:before {
-    content: "";
+    content: "\f0a5";
     font-family: var(--icon-font);
     font-weight: 400;
-    width: 25px;
-    height: 25px;
     line-height: 25px;
     position: absolute;
     top: 0;
@@ -6641,7 +6638,7 @@ blockquote cite:before {
     color: var(--white-color);
     border-radius: 50%;
     text-align: center;
-    font-size: 12px
+    font-size: 30px
 }
 
 .vs-list li:before {
@@ -7321,11 +7318,10 @@ blockquote cite:before {
 
     .vs-list li:before,
     .about-list li:before {
-        width: 20px;
-        height: 20px;
+
         line-height: 20px;
         top: 3px;
-        font-size: 12px
+        font-size: 30px
     }
 
     .counter-list {

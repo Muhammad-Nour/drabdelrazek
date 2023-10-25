@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-  <div style="text-align: center">
-    <a href="{{ route('admindashboard') }}">
-      <img src="{{ asset('design/images/side-logo.jpg') }}" style="width: 230px">
+  <div style="text-align: center;background-color: #fff;">
+    <a href="{{ route('settings.index') }}">
+      <img src="{{ asset('design/images/side-logo.png') }}" style="width: 230px">
     </a>
   </div>
   <!-- Sidebar -->
@@ -27,12 +27,7 @@
           <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
 
-           <li class="nav-item">
-            <a href="{{ route('admindashboard') }}" class="nav-link {{ request()->routeIs('admindashboard') ? 'active' : '' }}">
-              <i class="nav-icon fa fa-th-large "></i>
-              <p>{{ __('site.dasboard') }}</p>
-            </a>
-          </li>
+
           @can('settings')
           <li class="nav-item {{ request()->routeIs('settings.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('settings.*') ? 'active' : '' }}">
@@ -184,33 +179,33 @@
           </li>
           @endcan('partners') -->
 
-          @can('contacts')
-          <li class="nav-item {{ request()->routeIs('contacts.*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
+          @can('messages')
+          <li class="nav-item {{ request()->routeIs('messages.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('messages.*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                {{ __('site.contacts') }}
+                {{ __('site.messages') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('contacts.index') }}" class="nav-link {{ request()->routeIs('contacts.index') ? 'sub-active' : '' }}">
+                <a href="{{ route('messages.index') }}" class="nav-link {{ request()->routeIs('messages.index') ? 'sub-active' : '' }}">
                   <i class="fas fa-list nav-icon"></i>
                   <p>{{ __('site.show') }}</p>
                 </a>
               </li>
-              @can('add_contacts')
+              @can('add_messages')
               <li class="nav-item">
-                <a href="{{ route('contacts.create') }}" class="nav-link {{ request()->routeIs('contacts.create') ? 'sub-active' : '' }}">
+                <a href="{{ route('messages.create') }}" class="nav-link {{ request()->routeIs('messages.create') ? 'sub-active' : '' }}">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>{{ __('site.add') }}</p>
                 </a>
               </li>
-              @endcan('add_contacts')
+              @endcan('add_messages')
             </ul>
           </li>
-          @endcan('contacts')
+          @endcan('messages')
 
           @can('appointments')
           <li class="nav-item {{ request()->routeIs('appointments.*') ? 'menu-open' : '' }}">

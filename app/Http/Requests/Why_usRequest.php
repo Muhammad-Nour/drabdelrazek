@@ -24,8 +24,8 @@ class Why_usRequest extends FormRequest
     public function rules()
     {
         return [
-            'description_ar'    => ['required','string','max:255'],
-            'description_en'    => ['nullable','string','max:255'],
+            'description_ar'    => ['required','string'],
+            'description_en'    => ['nullable','string'],
         ];  
     }
 

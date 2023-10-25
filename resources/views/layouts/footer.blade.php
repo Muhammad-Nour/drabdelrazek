@@ -1,6 +1,6 @@
 <footer class="main-footer">
-    <strong> &copy; 2023  شركة عناية الأفق الطبية . جميع الحقوق محفوظة | تصميم المهندس :
-         <a href="https://www.facebook.com/Eng.MuhammadNour" target="_blank"> محمد نور -  01151379295</a></strong>
+    <strong> &copy; 2023    دكتور عبدالرازق محمد . جميع الحقوق محفوظة | تصميم  :
+        <a href="https://wa.me/+201151379295" target="_blanck">Future For Development</a></strong>
 
 
   </footer>

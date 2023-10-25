@@ -8,6 +8,7 @@ return
     'aboutus' => 'عن الدكتور',
     'products' => 'المنتجات',
     'projects' => 'أعمالنا',
+    'contactus' => 'إتصل بنا',
     'search_in_almabda' => 'ابحث فى المبدأ للديكور عن المنتجات',
     'signin' => 'تسجيل الدخول ',
     'registration' => 'الإشتراك',
@@ -28,6 +29,9 @@ return
     'subject' => 'الموضوع',
     'message' =>'الرسالة',
     'send_message' => 'إرسال الرسالة',
+    'service' => 'الخدمات',
+    'blog' => 'المقالات',
+    'faqs' => 'أسئلة شائعة',
 
     // muhammad
     'address' => 'العنوان',
@@ -36,7 +40,6 @@ return
     'blog'=>'المقالات',
     'contact'=>'تواصل معنا',
     'testimonial'=>'آراء العملاء',
-    'services'=>'خدماتنا',
     'projects'=>'قصص نجاح',
     'appointment'=>'حجز موعد',
     'meettings'=>'لقاءات',

@@ -24,8 +24,8 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="{{route('branches.update',$branch->id)}}" 
-					method="post" enctype="multipart/form-data">
+				<form action="{{route('branches.update',$branch->id)}}"  method="post" enctype="multipart/form-data">
+					
 					@csrf
 					{{ method_field('put') }}
 					<div class="card-body">
@@ -36,7 +36,7 @@
 						</div>
 						<div class="form-group display-none">
 							<label>{{__('site.name_en')}}</label>
-							<input type="text" class="form-control" name="name_en" required 
+							<input type="text" class="form-control" name="name_en"  
 							value="{{ isset($branch) ? $branch->name_en : ''}}">
 						</div>
 						<div class="form-group">
@@ -46,7 +46,7 @@
 						</div>
 						<div class="form-group display-none">
 							<label>{{__('site.address_en')}}</label>
-							<input type="text" class="form-control" name="address_en" required 
+							<input type="text" class="form-control" name="address_en"  
 							value="{{ isset($branch) ? $branch->address_en : ''}}">
 						</div>
 						<div class="form-group">
@@ -56,7 +56,7 @@
 						</div>
 						<div class="form-group display-none">
 							<label>{{__('site.description_en')}}</label>
-							<input type="text" class="form-control" name="description_en" required 
+							<input type="text" class="form-control" name="description_en"  
 							value="{{ isset($branch) ? $branch->description_en : ''}}">
 						</div>
 						<div class="form-group">
@@ -73,7 +73,7 @@
 					</div>
 					<!-- /.card-body -->
 					<div class="card-footer">
-						<button type="submit" class="btn btn-style">{{__('site.update')}}</button>
+						<button type="submit" class="btn btn-style"><i class="fa fa-edit"></i> {{__('site.update')}}</button>
 					</div>
 					<!-- /.card-footer -->
 				</form>

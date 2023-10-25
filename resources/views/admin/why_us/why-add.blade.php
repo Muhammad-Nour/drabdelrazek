@@ -24,7 +24,7 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form action="{{route('why_us.store')}}" method="post" enctype="multipart/form-data">
+				<form action="{{route('whys.store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="card-body">
 						<div class="form-group">

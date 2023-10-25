@@ -28,4 +28,6 @@ return
     'subject' => 'Subject',
     'message' =>'Message',
     'send_message' => 'Send Message',
+    'service' => 'Service',
+    'blog' => 'Blog',
 ];

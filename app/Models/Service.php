@@ -28,6 +28,6 @@ class Service extends Model
 
     public function serviceinsta()
     {
-        return $this->hasMany(ServiceInstructions::class);
+        return $this->hasMany(ServiceInstruction::class);
     }
 }

@@ -2,7 +2,6 @@
 
 return [
  // Mohamed
-	'dr_name'=>'د / عبدالرازق محمد',
 	'customs'=>'أساسيات',
 	'dasboard' => 'الرئيسية',
 	'logout' => 'الخروج',
@@ -22,7 +21,7 @@ return [
 	'partners'=>'شركاءنا',
 	'actions'=>'الإجراءات',
 	'projects'=>'قصص النجاح',
-	'contacts'=>'رسائل العملاء',
+	'messages'=>'رسائل العملاء',
 	'message'=>'الرسالة',
 	'notes'=>'الملاحظات',
 	'subject'=>'الموضوع',
@@ -34,9 +33,6 @@ return [
 	'addedMessage'=>'تمت الاضافة بنجاح',
 	'updatedMessage'=>'تم التحديث بنجاح ',
 	'deletedMessage'=>'تم الحذف بنجاح ',
-	'AppointmentBooked'=>'تم حجز الموعد',
-	'appointments'=>'حجز العملاء',
-	'MessageSent'=>'تم ارسال الرسالة',
 	'error'=>'هناك خطأ ما',
 	'unit_ar'=>'الوحدة AR',
 	'unit_en'=>'الوحدة EN',
@@ -81,6 +77,9 @@ return [
 	'value' => 'القيمة',
 	'attachment'=>'المرفق',
     'project'=> 'المشروع',
+    'AppointmentBooked'=>'تم حجز الموعد',
+	'appointments'=>'حجز العملاء',
+	'MessageSent'=>'تم ارسال الرسالة',
     'governorate'=>'المحافظة',
     'city'=>'المدينة',
     'height'=>'الطول',
@@ -92,7 +91,6 @@ return [
     'services'=>'الخدمات',
     'add_insta'=>'إضافة إرشادات',
     'servicesInstruction'=>'إرشادات الخدمة',
-
 
 
 // Ahmed

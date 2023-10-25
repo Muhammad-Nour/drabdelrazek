@@ -12,15 +12,15 @@ use App\Http\Controllers\CategoryController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectGalleryController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BranchGalleryController;
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\MeettingController;
 use App\Http\Controllers\faqController;
 use App\Http\Controllers\Why_usController;
@@ -51,13 +51,9 @@ Route::group(
         Route::get('products/{category}' , 'products')->name('front.products');
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
         Route::get('projects' , 'projects')->name('front.projects');
-        Route::get('projects/details/{project}' , 'projectDetails')->name('front.projectDetails');
 
         Route::get('about' , 'about')->name('front.about');
-        // Route::get('contact' , 'contact')->name('front.contact');
-
         Route::get('branch/{branch}' , 'contact')->name('front.contact');
-
         Route::get('blog' , 'blog')->name('front.blog');
         Route::get('blog/{blog}' , 'blogDetails')->name('front.blogdetails'); //muhammad
 
@@ -67,11 +63,11 @@ Route::group(
 
         Route::get('appointment','appointment')->name('appointment.store');
         Route::get('message','message')->name('message.store');
-
         Route::get('BookAppointment','BookAppointment')->name('front.BookAppointment');
-
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
-
+        //ahmed
+        Route::get('service/{category}' , 'service')->name('front.service');
+        Route::get('service/details/{service}' , 'serviceDetails')->name('front.serviceDetails');
     });
 	//end FrontController
 
@@ -120,7 +116,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('customs', CustomController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('projects', ProjectController::class);
-    Route::resource('contacts', ContactController::class);
+    Route::resource('messages', MessageController::class);
 	Route::resource('blogs', BlogController::class);
     Route::resource('branches', BranchController::class);
     Route::resource('branchGallery', BranchGalleryController::class);
@@ -130,6 +126,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('whys',Why_usController::class);
     Route::resource('services',ServiceController::class);
     Route::resource('servicesIsnta',ServiceInstructionController::class);
+
+    Route::controller(ServiceInstructionController::class)->group(function () {
+        Route::get('servicesIsnta/create/{service}' , 'create')->name('servicesIsnta.create');
+        Route::post('servicesIsnta/store/{service}' , 'store')->name('servicesIsnta.store');
+    });
 });
 
 Route::middleware([

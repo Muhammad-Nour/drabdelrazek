@@ -28,9 +28,9 @@ class BranchRequest extends FormRequest
     {
         return [
             'name_ar'      => 
-            ['required','string','max:255',Rule::unique('branches')->ignore($this->route()->parameter('branch'))],
+            ['required','string','max:255'],
             'name_en'      => 
-            ['nullable','string','max:255',Rule::unique('branches')->ignore($this->route()->parameter('branch'))],
+            ['nullable','string','max:255'],
             'address_ar'        => 'required|string',
             'address_en'        => 'nullable|string',
             'description_ar'        => 'required|string',
@@ -44,7 +44,6 @@ class BranchRequest extends FormRequest
             'required' => 'هذا الحقل مطلوب',
             'string' => 'الحقل المطلوب يجب أن يكون نص',
             'name.max' => 'يجب ألا يزيد الإسم عن 255 حرف و رقم',
-            'name.unique' => 'اسم الصنف مكرر',
         ];
     }
 

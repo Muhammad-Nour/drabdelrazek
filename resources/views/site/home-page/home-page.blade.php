@@ -12,20 +12,20 @@
 
     @include('site.home-page.inc-slider')
 
-    @include('site.home-page.inc-category2')
+    @include('site.home-page.inc-services')
 
-    @include('site.home-page.inc-category3')
+    @include('site.home-page.inc-about')
 
-    @include('site.home-page.inc-category5')
+    @include('site.home-page.inc-whyus')
 
-    @include('site.home-page.inc-category6')
+    @include('site.home-page.inc-faqs')
 
-    @include('site.home-page.inc-category7')
+    @include('site.home-page.inc-beforeAfter')
 
-    @include('site.home-page.inc-category8')
+    @include('site.home-page.inc-testimonials')
 
-    @include('site.home-page.inc-category9')
+    @include('site.home-page.inc-blogs')
 
-    @include('site.home-page.inc-category10')
+    @include('site.home-page.inc-meettings')
 
 @stop
