@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Appointment extends Model
+class State extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
-    
-    protected $primaryKey = 'id';
 
     public function country()
     {
         return $this->belongsTo(Country::class);
     }
 
-    public function state()
+    public function appointment()
     {
-        return $this->belongsTo(State::class);
+        return $this->hasMany(Appointment::class);
     }
 
     public function admin()
@@ -32,5 +30,4 @@ class Appointment extends Model
     {
         return $this->belongsTo(Admin::class, 'updated_by');
     }
-    
 }

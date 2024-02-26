@@ -36,20 +36,37 @@
 							<input type="text" class="form-control" name="phone" required value="{{old('phone')}}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.governorate')}}</label>
-							<input type="text" class="form-control" name="governorate" required value="{{old('governorate')}}">
+							<label>{{__('site.country')}}</label>
+							<select name="country_id" class="style2 form-control form-select country-select" required data-url="{{ route('state.country') }}">
+								<option value="">{{ __('site.select') }}</option>
+								@foreach ($countries as $country)
+								<option value="{{ $country->id }}" {{ (request()->country_id == $country->id) ? 'selected' : '' }} >{{ $country->{'name_'.app()->getLocale()} }}</option>
+								@endforeach
+							</select>
+							@if ($errors->first('country'))
+							<p class="text-center"><span class="form-error"> {{ $errors->first('country') }}</span></p>
+							@endif
+						</div>
+						<div class="form-group">
+							<label>{{__('site.state')}}</label>
+							<select name="state_id" class="style2 form-control form-select state-select" required>
+								<option value="">{{ __('site.select') }}</option>
+							</select>
+							@if ($errors->first('state'))
+							<p class="text-center"><span class="form-error"> {{ $errors->first('state') }}</span></p>
+							@endif
 						</div>
 						<div class="form-group">
 							<label>{{__('site.city')}}</label>
-							<input type="text" class="form-control" name="city" required value="{{old('city')}}">
+							<input type="text" class="form-control" name="city" value="{{old('city')}}">
 						</div>
 						<div class="form-group">
 							<label>{{__('site.height')}}</label>
-							<input type="text" class="form-control" name="height" required value="{{old('height')}}">
+							<input type="text" class="form-control" name="height" value="{{old('height')}}">
 						</div>
 						<div class="form-group">
 							<label>{{__('site.weight')}}</label>
-							<input type="text" class="form-control" name="weight" required value="{{old('Weight')}}">
+							<input type="text" class="form-control" name="weight" value="{{old('Weight')}}">
 						</div>
 					</div>
 				</div>

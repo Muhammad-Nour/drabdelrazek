@@ -151,34 +151,6 @@
           </li>
           @endcan('projects')
 
-<!--           @can('partners')
-          <li class="nav-item {{ request()->routeIs('partners.*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->routeIs('partners.*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                {{ __('site.partners') }}
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('partners.index') }}" class="nav-link {{ request()->routeIs('partners.index') ? 'sub-active' : '' }}">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>{{ __('site.show') }}</p>
-                </a>
-              </li>
-              @can('add_partners')
-              <li class="nav-item">
-                <a href="{{ route('partners.create') }}" class="nav-link {{ request()->routeIs('partners.create') ? 'sub-active' : '' }}">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>{{ __('site.add') }}</p>
-                </a>
-              </li>
-              @endcan('add_partners')
-            </ul>
-          </li>
-          @endcan('partners') -->
-
           @can('messages')
           <li class="nav-item {{ request()->routeIs('messages.*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ request()->routeIs('messages.*') ? 'active' : '' }}">
@@ -234,6 +206,62 @@
             </ul>
           </li>
           @endcan('appointments')
+
+          @can('countries')
+          <li class="nav-item {{ request()->routeIs('countries.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('countries.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                {{ __('site.countries') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('countries.index') }}" class="nav-link {{ request()->routeIs('countries.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+            @can('add_countries')
+              <li class="nav-item">
+                <a href="{{ route('countries.create') }}" class="nav-link {{ request()->routeIs('countries.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+            @endcan('add_countries')
+            </ul>
+          </li>
+          @endcan('countries')
+
+          @can('states')
+          <li class="nav-item {{ request()->routeIs('states.*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->routeIs('states.*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                {{ __('site.states') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('states.index') }}" class="nav-link {{ request()->routeIs('states.index') ? 'sub-active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>{{ __('site.show') }}</p>
+                </a>
+              </li>
+            @can('add_states')
+              <li class="nav-item">
+                <a href="{{ route('states.create') }}" class="nav-link {{ request()->routeIs('states.create') ? 'sub-active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>{{ __('site.add') }}</p>
+                </a>
+              </li>
+            @endcan('add_states')
+            </ul>
+          </li>
+          @endcan('states')
 
           @can('sliders')
           <li class="nav-item {{ request()->routeIs('sliders.*') ? 'menu-open' : '' }}">

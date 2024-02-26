@@ -64,7 +64,7 @@ class UserController extends Controller
         
         $user->assignRole($request->input('roles_name'));
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('users.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**

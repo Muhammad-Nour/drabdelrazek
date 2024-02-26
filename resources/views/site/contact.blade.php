@@ -1,27 +1,3 @@
-<?php
-use App\Models\Custom;
-use App\Models\Branch;
-use App\Models\Setting;
-use App\Models\Testimonial;
-use App\Models\Blog;
-
-$about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
-$branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
-'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
-$phone    = Setting::where('code', 'phone')->first();
-$phone2    = Setting::where('code', 'phone2')->first();
-$email    = Setting::where('code', 'email')->first();
-$facebook = Setting::where('code', 'facebook')->first();
-$instgram = Setting::where('code', 'instgram')->first();
-$WhatsApp = Setting::where('code', 'WhatsApp')->first();
-
-$secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'secrets_video')->first();
-
-$dr_name = Custom::where('code', 'dr_name')->first();
-
-$bio = Custom::where('code', 'bio')->first();
-
-?>
 @extends('site.layouts.app')
 
 @section('title', __('front.contact'))
@@ -84,7 +60,7 @@ $bio = Custom::where('code', 'bio')->first();
                 <div class="form-group mb-15 ">
                     <textarea name="description" id="description" cols="30" rows="3"
                     class="form-control {{ $errors->first('description') ? 'text-border-red' : 'style3' }}"
-                     required placeholder="الرسالة"> {{old('description')}}
+                    required placeholder="الرسالة"> {{old('description')}}
                 </textarea>
                 <i class="fal fa-pencil-alt"></i>
                 @if ($errors->first('description'))
@@ -98,35 +74,35 @@ $bio = Custom::where('code', 'bio')->first();
             </div>
         </form>
     </div>
-            <div class="col-lg-6">
-                <div class="contact-information mb-30">
-                    <h3 class="mt-n2">فرع {{$branch->name_ar}}</h3>
-                    <div class="row">
-                        <div class="col-xxl-10">
-                            <p>نحن هنا لخدمتك وللاجابة على استفساراتكم ، تواصل معنا فى أي وقت وسيتم الرد عليك فى اقرب وقت.</p>
-                        </div>
-                    </div>
-                    <h3 class="h4 pt-2 mb-10">مواعيد العمل</h3>
-                    <p>{{$branch->description_ar}}</p>
-
-                    <h4 class="pt-2 mb-10">{{__('front.address')}}</h4>
-                    <p class="fs-md"><i class="far fa-map-marker-alt me-2"></i>{{$branch->address_ar}}</p>
-
-                    <h4 class="pt-2 mb-10">{{__('front.email')}}</h4>
-                    <p class="fs-md"><i class="fal fa-envelope fa-sm me-2"></i>{{$email->value}}</p>
-                </div>
-                    <h4 class="pt-2 mb-2">{{__('front.customer_service')}}</h4>
-                    <h4 class="h3 font-theme2 mb-0"> <a href="#">
-                        <i class="far fa-phone-alt me-2"></i>{{$phone->value}} |
-                        <i></i>{{$phone2->value}}</a>
-                    </h4>
-                </div>
-                <div class="ratio ratio-21x9 contact-map mt-70 mb-30">
-                {!!$branch->map!!}
+    <div class="col-lg-6">
+        <div class="contact-information mb-30">
+            <h3 class="mt-n2">فرع {{$branch->name_ar}}</h3>
+            <div class="row">
+                <div class="col-xxl-10">
+                    <p>نحن هنا لخدمتك وللاجابة على استفساراتكم ، تواصل معنا فى أي وقت وسيتم الرد عليك فى اقرب وقت.</p>
                 </div>
             </div>
-        </div>
+            <h3 class="h4 pt-2 mb-10">مواعيد العمل</h3>
+            <p>{{$branch->description_ar}}</p>
 
+            <h4 class="pt-2 mb-10">{{__('front.address')}}</h4>
+            <p class="fs-md"><i class="far fa-map-marker-alt me-2"></i>{{$branch->address_ar}}</p>
+
+            <h4 class="pt-2 mb-10">{{__('front.email')}}</h4>
+            <p class="fs-md"><i class="fal fa-envelope fa-sm me-2"></i>{{$email->value}}</p>
+        </div>
+        <h4 class="pt-2 mb-2">{{__('front.customer_service')}}</h4>
+        <h4 class="h3 font-theme2 mb-0"> <a href="#">
+            <i class="far fa-phone-alt me-2"></i>{{$phone->value}} |
+            <i></i>{{$phone2->value}}</a>
+        </h4>
     </div>
+    <div class="ratio ratio-21x9 contact-map mt-70 mb-30">
+        {!!$branch->map!!}
+    </div>
+</div>
+</div>
+
+</div>
 </section>
 @stop

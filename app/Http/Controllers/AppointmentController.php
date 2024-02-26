@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Country;
+use App\Models\State;
 use App\Http\Requests\AppointmentRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,9 +29,11 @@ class AppointmentController extends Controller
     {
         $appointments = Appointment::paginate(20);
 
+        $countries = Country::all();
+
         $paginate = true ;
 
-        return view('admin.appointments.appointment-show',compact('appointments'));
+        return view('admin.appointments.appointment-show',compact('appointments','countries'));
     }
 
     /**
@@ -39,7 +43,10 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        return view('admin.appointments.appointment-add');
+
+        $countries = Country::all();
+
+        return view('admin.appointments.appointment-add',compact('countries'));
     }
 
     /**
@@ -76,7 +83,10 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        return view('admin.appointments.appointment-edit',compact('appointment'));
+        $countries = Country::all();
+        $states = State::all();
+
+        return view('admin.appointments.appointment-edit',compact('appointment','states','countries'));
     }
 
 

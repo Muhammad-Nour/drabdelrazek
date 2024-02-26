@@ -30,10 +30,11 @@ class AppointmentRequest extends FormRequest
         return [
             'name'              => ['required','string','max:255','regex:/^(?!.*\d)[a-z\p{Arabic}\s]{2,66}$/ui'],
             'phone'             => ['required','numeric','regex:/^01\d{9}$/'],
-            'height'            => ['required','numeric'],
-            'weight'            => ['required','numeric'],
-            'governorate'       => ['required','string','max:255','regex:/^(?!.*\d)[a-z\p{Arabic}\s]{2,66}$/ui'],
-            'city'              => ['required','string','max:255','regex:/^[\p{L}\p{N}\s]+$/ui'],
+            'height'            => ['numeric','nullable'],
+            'weight'            => ['numeric','nullable'],
+            'state_id'             => ['nullable','string'],
+            'city'              => ['nullable','string','max:255','regex:/^[\p{L}\p{N}\s]+$/ui'],
+            'country_id'           => ['required','string'],
         ];  
     }
 
@@ -50,7 +51,6 @@ class AppointmentRequest extends FormRequest
             'phone.regex'=>'رقم الموبايل غير صحيح',
 
             'name.regex'=>' الإسم غير صحيح',
-            'governorate.regex'=>' إسم المحافظة غير صحيح',
             'city.regex'=>' إسم المدينة غير صحيح',
 
         ];

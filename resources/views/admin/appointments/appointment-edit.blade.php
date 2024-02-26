@@ -35,11 +35,35 @@
 						</div>
 						<div class="form-group">
 							<label>{{__('site.phone')}}</label>
-							<input type="text" class="form-control" name="phone" value="{{old('phone',$appointment->phone) }}">
+							<input type="text" class="form-control" required name="phone" value="{{old('phone',$appointment->phone) }}">
 						</div>
 						<div class="form-group">
-							<label>{{__('site.governorate')}}</label>
-							<input type="text" class="form-control" name="governorate" value="{{old('governorate',$appointment->governorate) }}">
+							<label>{{__('site.country')}}</label>
+							<select name="country_id" class="style2 form-control form-select country-select" required data-url="{{ route('state.country') }}">
+								<option value="">{{ __('site.select') }}</option>
+								@foreach ($countries as $country)
+								<option value="{{ $country->id }}" {{ ($appointment->country_id == $country->id) ? 'selected' : '' }} >{{ $country->{'name_'.app()->getLocale()} }}</option>
+								@endforeach
+							</select>
+							@if ($errors->first('country'))
+							<p class="text-center"><span class="form-error"> {{ $errors->first('country') }}</span></p>
+							@endif
+						</div>
+
+						<div class="form-group">
+							<label>{{__('site.state')}}</label>
+							<select name="state_id" class="style2 form-control form-select state-select">
+								<option value="">{{ __('site.select') }}</option>
+								@foreach ($states as $state)
+								<option value="{{ $state->id }}" {{ ($appointment->state_id == $state->id) ? 'selected' : '' }} >
+									{{ $state->{'name_'.app()->getLocale()} }}</option>
+								@endforeach
+							</select>
+							@if ($errors->first('state'))
+							<p class="text-center"><span class="form-error"> {{ $errors->first('state') }}</span></p>
+							@endif
+
+
 						</div>
 						<div class="form-group">
 							<label>{{__('site.city')}}</label>

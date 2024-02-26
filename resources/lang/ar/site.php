@@ -80,7 +80,7 @@ return [
     'AppointmentBooked'=>'تم حجز الموعد',
 	'appointments'=>'حجز العملاء',
 	'MessageSent'=>'تم ارسال الرسالة',
-    'governorate'=>'المحافظة',
+    'state'=>'المحافظة',
     'city'=>'المدينة',
     'height'=>'الطول',
     'weight'=>'الوزن',
@@ -91,6 +91,12 @@ return [
     'services'=>'الخدمات',
     'add_insta'=>'إضافة إرشادات',
     'servicesInstruction'=>'إرشادات الخدمة',
+    'country'=>'الدولة',
+    'countries'=>'الدول',
+    'states'=>' المحافظات',
+    'country_code'=>'كود الدولة',
+    'state_code'=>'كود المحافظة',
+    'governorate'=>'المحافظة',
 
 
 // Ahmed

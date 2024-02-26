@@ -64,7 +64,7 @@ class RoleController extends Controller
 
         $role->syncPermissions($request->input('permission'));
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('roles.create'))->with('msg',__('site.addedMessage'));
 
     }
     /**

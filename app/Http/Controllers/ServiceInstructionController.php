@@ -40,7 +40,7 @@ class ServiceInstructionController extends Controller
         $columns = $request->validated();
         $columns['service_id'] = $service->id;
         Service_instruction::create($columns);
-        return redirect()->back()->withInput()->with('msg',__('addedMessage'));
+        return redirect(route('servicesIsnta.create',$service->id))->with('msg',__('site.addedMessage'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ServiceInstructionController extends Controller
         $service = Service_instruction::findOrFail($id);
         $service->update($request->validated());
 
-        return redirect()->back()->withInput()->with('msg', __('site.updatedMessage'));
+        return redirect(route('servicesIsnta.show',$service->service_id))->with('msg', __('site.updatedMessage'));
     }
 
     /**
@@ -95,6 +95,6 @@ class ServiceInstructionController extends Controller
     {
         $service = Service_instruction::findOrFail($id);
         $service->delete();
-        return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));
+        return redirect(route('servicesIsnta.show',$service->service_id))->with('msg',__('site.deletedMessage'));
     }
 }

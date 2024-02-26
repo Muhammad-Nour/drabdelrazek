@@ -47,7 +47,7 @@ class Why_usController extends Controller
     public function store(Why_usRequest $request)
     {
         Why_us::create($request->validated());
-        return redirect()->back()->withinput()->with('msg',__('site.addedMessage'));
+        return redirect(route('whys.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**
@@ -82,7 +82,7 @@ class Why_usController extends Controller
     public function update(Why_usRequest $request , Why_us $why)
     {
         $why->update($request->validated());
-        return redirect()->route('whys.index')->withInput()->with('msg',__('site.updatedMessage'));
+        return redirect(route('whys.create'))->with('msg',__('site.updatedMessage'));
     }
 
     /**
@@ -94,6 +94,6 @@ class Why_usController extends Controller
     public function destroy(Why_us $why)
     {
         $why->delete();
-        return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));   
+        return redirect(route('whys.create'))->with('msg',__('site.deletedMessage'));   
     }
 }

@@ -52,9 +52,11 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
-        $admin = Admin::create($request->validated());
+        $input['password'] = Hash::make($input['password']);
+
+        $admin = Admin::create($input);
         
         $admin->assignRole($request->input('roles_name'));
 

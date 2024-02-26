@@ -26,7 +26,7 @@
                 <h2 class="h4 mb-1 text-white">إحجز موعدك</h2>
             </div>
             <div class="col-auto d-none d-sm-block">
-                <a href="tel:{{$phone->value}}" class="ripple-icon style2">
+                <a class="ripple-icon style2">
                     <i class="fas fa-phone"></i>
                 </a>
             </div>
@@ -58,16 +58,30 @@
                 <p class="text-center"><span class="form-error"> {{ $errors->first('phone') }}</span></p>
                 @endif
             </div>
+
             <div class="col-xl-6 form-group">
-                <input name="governorate" type="text" placeholder="المحافظة" required value="{{old('governorate')}}"
-                class="form-control {{ $errors->first('governorate') ? 'border-red' : 'style2' }}">
-                <i class="fal small fa-solid fa-city"></i>
-                @if ($errors->first('governorate'))
-                <p class="text-center"><span class="form-error"> {{ $errors->first('governorate') }}</span></p>
+                <select name="country_id" class="style2 form-select country-select" required data-url="{{ route('state.country') }}">
+                        <option value="">{{ __('site.select') }}</option>
+                        @foreach ($countries as $country)
+                        <option value="{{ $country->id }}" {{ (request()->country_id == $country->id) ? 'selected' : '' }} >{{ $country->{'name_'.app()->getLocale()} }}</option>
+                        @endforeach
+                   </select>
+                @if ($errors->first('country'))
+                <p class="text-center"><span class="form-error"> {{ $errors->first('country') }}</span></p>
                 @endif
             </div>
+
             <div class="col-xl-6 form-group">
-                <input name="city" type="text" placeholder="المدينة" required value="{{old('city')}}"
+                <select name="state_id" class="style2 form-select state-select">
+                    <option value="">{{ __('site.select') }}</option>
+                </select>
+                @if ($errors->first('state'))
+                <p class="text-center"><span class="form-error"> {{ $errors->first('state') }}</span></p>
+                @endif
+            </div>
+
+            <div class="col-xl-6 form-group">
+                <input name="city" type="text" placeholder="المدينة| إختياري" value="{{old('city')}}"
                 class="form-control {{ $errors->first('city') ? 'border-red' : 'style2' }}">
                 <i class="fal small fa-solid fa-city"></i>
                 @if ($errors->first('city'))
@@ -75,7 +89,7 @@
                 @endif
             </div>
             <div class="col-xl-6 form-group">
-                <input name="height" type="text" placeholder="الطول" required value="{{old('height')}}"
+                <input name="height" type="text" placeholder="الطول | إختياري" value="{{old('height')}}"
                 class="form-control {{ $errors->first('height') ? 'border-red' : 'style2' }}" >
                 <i class="fal small fa-solid fa-line-height"></i>
                 @if ($errors->first('height'))
@@ -83,7 +97,7 @@
                 @endif
             </div>
             <div class="col-xl-6 form-group">
-                <input name="weight" type="text" placeholder="الوزن" required value="{{old('weight')}}"
+                <input name="weight" type="text" placeholder="الوزن | إختياري" value="{{old('weight')}}"
                 class="form-control {{ $errors->first('weight') ? 'border-red' : 'style2' }}" >
                 <i class="fal small fa-solid fa-line-height"></i>
                 @if ($errors->first('weight'))

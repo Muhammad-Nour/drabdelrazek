@@ -47,7 +47,7 @@ class faqController extends Controller
     public function store(FaqRequest $request)
     {
         Faq::create($request->validated());
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('faqs.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**
@@ -83,7 +83,7 @@ class faqController extends Controller
     public function update(FaqRequest $request, Faq $faq)
     {
         $faq->update($request->validated());
-        return redirect()->back()->withInput()->with('msg',__('site.updatedMessage'));
+        return redirect(route('faqs.index'))->with('msg',__('site.updatedMessage'));
     }
 
     /**
@@ -95,6 +95,6 @@ class faqController extends Controller
     public function destroy(Faq $Faq)
     {
         $Faq->delete();
-        return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));
+        return redirect()->(route('faqs.index'))->with('msg',__('site.deletedMessage'));
     }
 }

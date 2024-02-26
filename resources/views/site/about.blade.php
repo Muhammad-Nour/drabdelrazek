@@ -1,39 +1,3 @@
-<?php
-use App\Models\Custom;
-use App\Models\Setting;
-use App\Models\Testimonial;
-use App\Models\Blog;
-use App\Models\Why_us;
-use App\Models\Branch;
-
-$about   = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
-$address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
-$phone    = Setting::where('code', 'phone')->first();
-$facebook = Setting::where('code', 'facebook')->first();
-$instgram = Setting::where('code', 'instgram')->first();
-$WhatsApp = Setting::where('code', 'WhatsApp')->first();
-
-$branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
-            'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
-
-$secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')->where('code', 'secrets_video')->first();
-
-$testimonials = Testimonial::select('id','photo','name',
-    'description_'.app()->getLocale().' as description','position_'.app()->getLocale().' as position')->get();
-
-$blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description','title_'.app()->getLocale().' as title')->get();
-
-$phone2 = Setting::where('code', 'phone2')->first();
-
-$dr_name = Custom::where('code', 'dr_name')->first();
-
-$bio = Custom::where('code', 'bio')->first();
-
-$questions = Why_us::select('id','description_'.app()->getLocale().' as description')->get();
-
-
-?>
-
     @extends('site.layouts.app')
 
     @section('title', __('front.aboutus'))
@@ -58,9 +22,9 @@ $questions = Why_us::select('id','description_'.app()->getLocale().' as descript
                 <div class="col-lg-6 mb-40 mb-lg-0 cl">
                     <div class="vs-surface wow" data-wow-delay="0.3s">
                         <div class="about-img3 position-relative">
-                            <img src="{{asset('images/'.$secrets_video->photo)}}"
+                            <img src="{{asset('images/'.$about_video->photo)}}"
                             alt="About Image" class="w-100">
-                            <a href="{!! $secrets_video->description !!}"
+                            <a href="{!! $about_video->description !!}"
                                 class="popup-video play-btn style2 position-center">
                                 <i class="fas fa-play"></i>
                             </a>

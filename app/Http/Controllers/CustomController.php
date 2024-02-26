@@ -50,7 +50,7 @@ class CustomController extends Controller
     public function store(CustomRequest $request , Custom $custom)
     {
         Custom::create($request->validated());
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('customs.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**

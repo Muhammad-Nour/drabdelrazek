@@ -7,26 +7,19 @@ use App\Models\Branch;
 $branches = Branch::select('id','name_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 $services = Service::select('id','photo','title_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 
-$appointment1 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment1')->first();
-
-$appointment2 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment2')->first();
-
-$appointment3 = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code','appointment3')->first();
-
-
 $about = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
 $phone = Setting::where('code', 'phone')->first();
 $phone2 = Setting::where('code', 'phone2')->first();
-        $email = Setting::where('code', 'email')->first();
-        $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
+$email = Setting::where('code', 'email')->first();
+$address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
 
-        $dr_name = Custom::where('code', 'dr_name')->first();
+$dr_name = Custom::where('code', 'dr_name')->first();
 
-        $facebook = Setting::where('code', 'facebook')->first();
-        $instagram = Setting::where('code', 'instagram')->first();
-        $WhatsApp = Setting::where('code', 'WhatsApp')->first();
-        $tiktok = Setting::where('code', 'tiktok')->first();
-        $youtube = Setting::where('code', 'youtube')->first();
+$facebook = Setting::where('code', 'facebook')->first();
+$instagram = Setting::where('code', 'instagram')->first();
+$WhatsApp = Setting::where('code', 'WhatsApp')->first();
+$tiktok = Setting::where('code', 'tiktok')->first();
+$youtube = Setting::where('code', 'youtube')->first();
 ?>
 <footer class="footer-wrapper footer-layout1" data-bg-src="{{asset('design-site/img/bg/bg-shape-4.png')}}">
     <div class="container">

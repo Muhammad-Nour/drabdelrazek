@@ -25,6 +25,8 @@ use App\Http\Controllers\MeettingController;
 use App\Http\Controllers\faqController;
 use App\Http\Controllers\Why_usController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\StateController;
 use App\Http\Controllers\ServiceInstructionController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,11 +67,15 @@ Route::group(
         Route::get('message','message')->name('message.store');
         Route::get('BookAppointment','BookAppointment')->name('front.BookAppointment');
         Route::get('product/details/{product}' , 'productDetails')->name('front.productDetails');
+
         //ahmed
         Route::get('service/{category}' , 'service')->name('front.service');
         Route::get('service/details/{service}' , 'serviceDetails')->name('front.serviceDetails');
+        
     });
 	//end FrontController
+
+    Route::get('state.country',[CountryController::class , 'state'])->name('state.country'); #ajax
 
 Route::middleware('auth:admin')->group(function(){
 
@@ -126,6 +132,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function() {
     Route::resource('whys',Why_usController::class);
     Route::resource('services',ServiceController::class);
     Route::resource('servicesIsnta',ServiceInstructionController::class);
+    Route::resource('countries',CountryController::class);
+    Route::resource('states',StateController::class);
 
     Route::controller(ServiceInstructionController::class)->group(function () {
         Route::get('servicesIsnta/create/{service}' , 'create')->name('servicesIsnta.create');

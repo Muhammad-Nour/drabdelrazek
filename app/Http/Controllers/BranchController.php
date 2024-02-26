@@ -67,7 +67,7 @@ class BranchController extends Controller
 
         DB::commit();
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('branches.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**

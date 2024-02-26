@@ -1,6 +1,6 @@
 @extends('layouts.admin_app')
 
-@section('title', __('site.appointments'))
+@section('title', __('site.states'))
 
 @section('css')
 @stop
@@ -9,54 +9,44 @@
 @stop
 
 
-@section('title-page', __('site.appointments'))
+@section('title-page', __('site.states'))
 
 @section('content')
-<div class="main-stage appointments">
+<div class="main-stage states">
 	<div class="row">
 		<div class="col-md-11 m-auto">
 			@include('partial.alerts')
 
-			@if($appointments->count() > 0)
+			@if($states->count() > 0)
 			<div class="row">
-				@foreach($appointments as $appointment)
+				@foreach($states as $state)
 				<div class="col-md-12 single-row">
 					<div class="card">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-6 col-md-2">
 									<p class="key">{{__('site.code')}}</p>
-									<p class="value">{{$appointment->id}}</p>
+									<p class="value">{{$state->id}}</p>
 								</div>
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.name')}}</p>
-									<p class="value">{{$appointment->name}}</p>
+								<div class="col-6 col-md-3">
+									<p class="key">{{__('site.name_ar')}}</p>
+									<p class="value">{{$state->name_ar}}</p>
 								</div>
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.phone')}}</p>
-									<p class="value">{{$appointment->phone}}</p>
-								</div>
-
-								<div class="col-6 col-md-2">
+								<div class="col-6 col-md-3">
 									<p class="key">{{__('site.country')}}</p>
-									<p class="value">{{$appointment->country->name_ar}}</p>
+									<p class="value">{{$state->country->name_ar}}</p>
 								</div>
-
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.state')}}</p>
-									<p class="value">{{$appointment->state->name_ar}}</p>
+								<div class="col-6 col-md-3 display-none">
+									<p class="key">{{__('site.name_en')}}</p>
+									<p class="value">{{$state->name_en}}</p>
 								</div>
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.city')}}</p>
-									<p class="value">{{$appointment->city}}</p>
+								<div class="col-6 col-md-3">
+									<p class="key">{{__('site.state_code')}}</p>
+									<p class="value">{{$state->state_code}}</p>
 								</div>
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.height')}}</p>
-									<p class="value">{{$appointment->height}}</p>
-								</div>
-								<div class="col-6 col-md-2">
-									<p class="key">{{__('site.weight')}}</p>
-									<p class="value">{{$appointment->weight}}</p>
+								<div class="col-6 col-md-3">
+									<p class="key">{{__('site.code')}}</p>
+									<p class="value">{{$state->code}}</p>
 								</div>
 								<div class="col-6 col-md-2">
                                     <p class="key">{{__('site.actions')}}</p>
@@ -66,11 +56,11 @@
                                         </button>
 
                                         <div class="dropdown-menu">
-                                            @can('edit_appointment')
-                                            <a href="{{route('appointments.edit',$appointment->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
+                                            @can('edit_states')
+                                            <a href="{{route('states.edit',$state->id)}}" class=" dropdown-item"><i class="fa fa-edit"> </i> {{__('site.edit')}}</a>
                                             @endcan
-                                            @can('delete_appointment')
-                                            <form action="{{route('appointments.destroy', $appointment->id)}}" method="POST" class="dropdown-item">
+                                            @can('delete_states')
+                                            <form action="{{route('states.destroy', $state->id)}}" method="POST" class="dropdown-item">
                                                 @csrf
                                                 {{ method_field('delete') }}
                                                 <a href="" class="delete text-danger"> <i class="fa fa-trash-alt"> </i>   {{__('site.delete')}} </a>
@@ -88,7 +78,7 @@
 		</div>
 		@endif
 		@isset($paginate)
-		{{ $appointments->links() }}
+		{{ $states->links() }}
 		@endisset
 	</div>
 </div>

@@ -5,9 +5,9 @@
                 <div class="col-lg-6 mb-40 mb-lg-0 cl">
                     <div class="vs-surface wow" data-wow-delay="0.3s">
                         <div class="about-img3 position-relative">
-                            <img src="{{asset('images/'.$secrets_video->photo)}}"
+                            <img src="{{asset('images/'.$about_video->photo)}}"
                             alt="About Image" class="w-100">
-                            <a href="{!! $secrets_video->description !!}"
+                            <a href="{!! $about_video->description !!}"
                                 class="popup-video play-btn style2 position-center">
                                 <i class="fas fa-play"></i>
                             </a>

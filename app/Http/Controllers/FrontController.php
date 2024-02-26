@@ -21,6 +21,8 @@ use App\Models\Appointment; //muhammad
 use App\Http\Requests\ContactRequest;
 use App\Models\Meetting;
 use App\Models\Message;
+use App\Models\Country;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -37,7 +39,7 @@ class FrontController extends Controller
 
         $about = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')->where('code', 'about')->first();
         $address = Custom::select('id', 'description_'.app()->getLocale().' as description')->where('code', 'address')->first();
-        $secrets_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')->where('code', 'secrets_video')->first(); //muhammad
+        $about_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')->where('code', 'about_video')->first(); //muhammad
 
         $projects = Project::select('id','photo', 'name_'.app()->getLocale().' as name','description_'.app()->getLocale().' as description')->get();
 
@@ -46,6 +48,8 @@ class FrontController extends Controller
 
         $branches = Branch::select('id', 'description_'.app()->getLocale().' as description',
             'name_'.app()->getLocale().' as name','address_'.app()->getLocale().' as address')->get();
+
+        $countries = Country::all();
 
         $phone = Setting::where('code', 'phone')->first();
         $phone2 = Setting::where('code', 'phone2')->first();
@@ -58,14 +62,26 @@ class FrontController extends Controller
 
 
         return view('site.home-page.home-page',
-        compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp',
-        'secrets_video','projects','blogs','bio','dr_name','questions','branches','meettings'));
+            compact('sliders','services','testimonials','about','address','phone','phone2','facebook','instgram','WhatsApp',
+                'about_video','projects','blogs','bio','dr_name','questions','branches','meettings','countries'));
 
     }
 
     public function about()
     {
-        return view('site.about');
+        $questions = Why_us::select('id','description_'.app()->getLocale().' as description')->get();
+        $about_video = Custom::select('id', 'description_'.app()->getLocale().' as description','photo')
+        ->where('code', 'about_video')->first();
+        $about       = Custom::select('id','photo', 'description_'.app()->getLocale().' as description')
+        ->where('code', 'about')->first();
+        $dr_name     = Custom::where('code', 'dr_name')->first();
+        $testimonials = Testimonial::select('id','photo','name','description_'.app()->getLocale().' as description',
+            'position_'.app()->getLocale().' as position')->get();
+        $blogs = Blog::select('id','photo','description_'.app()->getLocale().' as description','title_'.app()
+            ->getLocale().' as title')->get();
+        $phone      = Setting::where('code', 'phone')->first();
+        $phone2     = Setting::where('code', 'phone2')->first();
+        return view('site.about',compact('questions','about_video','about','dr_name','testimonials','blogs','phone','phone2'));
     }
 
     public function blog()
@@ -115,7 +131,11 @@ class FrontController extends Controller
     {
         $questions = Why_us::select('id','description_'.app()->getLocale().' as description')->get();
 
-        return view('site.BookAppointment',compact('questions'));
+        $states = State::all();
+
+        $countries = Country::all();
+
+        return view('site.BookAppointment',compact('questions','countries','states'));
     }
 
     public function projects()

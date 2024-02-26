@@ -37,13 +37,34 @@
 <!-- Select2 -->
 <script src="{{ asset('design/admin/plugins/select2/js/select2.full.min.js') }}"></script>
 
-<script>
-    //Initialize Select2 Elements
-  $('.select2').select2()
-</script>
 <script src="{{ asset('design/js/ckeditor/ckeditor.js') }}"></script>
 
 <script src="{{ asset('design/js/sweetalert2.all.min.js') }}"></script>
+
+<script>
+    //Initialize Select2 Elements
+  $('#select2').select2({search: true})
+</script>
+
+<script type="text/javascript">
+
+    $('.country-select').on('change', function() {
+    var country_id = $(this).val();
+    var method = "get";
+    var url = $(this).data('url');
+    $.ajax({
+        url: url,
+        method: method,
+        data:{country_id:country_id},
+        success: function(data) {
+            $('.state-select').empty();
+            $('.state-select').append(data);
+        }
+    })
+
+});
+
+</script>
 
 <script>
   $(document).ready(function(){
@@ -62,12 +83,12 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+    $('.actions-dropdown .dropdown-menu').addClass("dropdown-menu-right");
+</script>
+
 <script src="{{ asset('design/js/printThis.js') }}"></script>
 <script src="{{ asset('design/js/delete.js') }}"></script>
 <script src="{{ asset('design/js/print.js') }}"></script>
 <script src="{{ asset('design/js/divjs.js') }}"></script>
 
-
-<script>
-    $('.actions-dropdown .dropdown-menu').addClass("dropdown-menu-right");
-</script>

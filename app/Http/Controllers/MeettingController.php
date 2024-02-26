@@ -57,7 +57,7 @@ class MeettingController extends Controller
 
         Meetting::create($columns);
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect((route('meettings.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**
@@ -103,7 +103,7 @@ class MeettingController extends Controller
         }
 
         $meetting->update($columns);
-        return redirect()->back()->withInput()->with('msg',__('site.updatedMessage'));
+        return redirect(route('meettings.index'))->with('msg',__('site.updatedMessage'));
     }
 
     /**
@@ -115,6 +115,6 @@ class MeettingController extends Controller
     public function destroy(Meetting $meetting)
     {
         $meetting->delete();
-        return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));
+        return redirect(route('meettings.index'))->with('msg',__('site.deletedMessage'));
     }
 }

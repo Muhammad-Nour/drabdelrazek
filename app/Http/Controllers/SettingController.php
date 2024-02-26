@@ -48,7 +48,7 @@ class SettingController extends Controller
         
         Setting::create($request->validated());
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('settings.create'))->with('msg',__('site.addedMessage'));
 
 
     }

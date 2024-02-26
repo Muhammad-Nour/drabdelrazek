@@ -49,7 +49,7 @@ class ServiceController extends Controller
 
         Service::create($columns);
 
-        return redirect()->back()->withInput()->with('msg',__('site.addedMessage'));
+        return redirect(route('services.create'))->with('msg',__('site.addedMessage'));
     }
 
     /**
@@ -96,7 +96,7 @@ class ServiceController extends Controller
 
         $service->update($columns);
 
-        return redirect()->back()->withInput()->with('msg',__('site.updatedMessage'));
+        return redirect(route('services.index'))->with('msg',__('site.updatedMessage'));
     }
 
     /**
@@ -108,6 +108,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->back()->withInput()->with('msg',__('site.deletedMessage'));
+        return redirect(route('services.index'))->with('msg',__('site.deletedMessage'));
     }
 }
