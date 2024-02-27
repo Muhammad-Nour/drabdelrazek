@@ -123,6 +123,58 @@ class FrontController extends Controller
     {
         Appointment::create($request->validated());
 
+        $data = [
+            "login"=> "other",
+            "password"=> "123"
+        ];
+        $json_data = json_encode($data);
+        $url = "http://207.180.235.35:6027/api/http/login";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,
+            array(
+                'Content-Type: text/plain',
+            )
+        );
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($response, true);
+        
+        if ($response['code'] == 200){
+            $data = [
+                "name"=> "حجز",
+                "contact_name"=> $request->name,
+                "phone"=> $request->phone,
+                "country_id"=> $request->country_id,
+                "state_id"=> $request->state_id,
+                "city"=> $request->city,
+                "height"=> $request->height,
+                "weight"=> $request->weight,
+            ];
+            $json_data = json_encode($data);
+            $url = "http://207.180.235.35:6027/api/http/create_crm_lead_from_api";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_HTTPHEADER,
+                array(
+                    'Content-Type: text/plain',
+                    'Authorization: Bearer ' . $response["data"]["token"],
+                )
+            );
+            $response = curl_exec($ch);
+            curl_close($ch);
+        }
+
         return redirect(route('front.BookAppointment'))->withInput()->with('msg',__('site.AppointmentBooked'));
 
     }
